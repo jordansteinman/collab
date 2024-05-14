@@ -1,8 +1,8 @@
 
 .imageHeader {
-    background-image: url("photos/warblerbackground.png");
+    background-image: url("photos/warblerbackground2.png");
     background-size: cover;
-    background-position: center bottom;
+    background-position: center bottom 550px;
 }
 
 .header-start {
