@@ -2,7 +2,7 @@
 .imageHeader {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("photos/warblerbackground.png");
     background-size: cover;
-    background-position: 100px;
+    background-position: center bottom 100px;
 }
 
 .header-start {
