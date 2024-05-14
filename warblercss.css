@@ -1,7 +1,7 @@
 
 .imageHeader {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("photos/warblerbackground.png");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 
