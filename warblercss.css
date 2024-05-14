@@ -117,11 +117,11 @@ margin: 0;
 .topnav a {
 text-decoration: none;
 display: block;
-font-family: Verdana,sans-serif;
-font-size: 15px;
+font-family: 'Trebuchet MS',sans-serif;
+font-size: 17px;
 float:left;
 text-align: center;
- letter-spacing: 4px;
+letter-spacing: 4px;
 padding: 14px 16px;
 color: black;
 margin-top: 2px;
