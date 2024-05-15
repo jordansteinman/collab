@@ -532,11 +532,11 @@ text-align: center;
     font-size: 1.1em;
     border-radius: 20px;
 }
-
+/* Linkedin button from https://codepen.io/perseusthewise/pen/zzQGrJ */
 .btn-linkedin {
 	  background: #0E76A8;
-	  border-radius: 0;
-	  color: #fff;
+	  border-radius: 20px;
+	  color: rgb(0, 0, 0);
 	  border-width: 1px;
 	  border-style: solid;
 	  border-color: #084461;
