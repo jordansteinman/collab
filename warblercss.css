@@ -281,6 +281,7 @@ position: fixed;
 #footer{
     color: rgb(255, 255, 255);
     background-color: #264C73 ;
+    padding-bottom: 5px;
   
 }
 .centertext{
