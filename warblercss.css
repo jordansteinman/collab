@@ -26,11 +26,11 @@
 
 p {font-family: 'Trebuchet MS',sans-serif;
    font-size: 18px;
-        margin-left:18px;
+   margin-left:18px;
        
   }
-#footerp {font-family: 'Trebuchet MS',sans-serif;
-   font-size: 18px;
+#footerp {
+    margin-left:0px
   }
 h1 {    
     font-family: 'Trebuchet MS',sans-serif;
