@@ -523,6 +523,14 @@ text-align: center;
   	font-size: 16px;
   	margin: 4px 2px;
 	padding: 10px;
+	border-radius: 20px;
+}
+#linkedinbutton {
+    color: rgb(0, 0, 0);
+    background: #e6eeff;
+    padding: 18px 38px;
+    font-size: 1.1em;
+    border-radius: 20px;
 }
 #myTopnav a.selected{
     background-color: #e8f0ff;
