@@ -92,13 +92,13 @@ font-family:Verdana,sans-serif;
 }
 
 @media (max-width: 650px){
-    .imageclass, .imageHeader {
+    .imageclass, .imageHeader, .R_Image {
     width: 100%;
     height: auto;
     }
 }
 @media (max-width: 1100px){
-    .imageclass, .imageHeader {
+    .imageclass, .imageHeader, .R_Image {
     width: 100%;
     height: auto;
     }
