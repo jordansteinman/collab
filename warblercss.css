@@ -3,7 +3,12 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("photos/warblerbackground2.png");
     background-size: cover;
     background-position: center;
-    margin-top: 80px;
+    background-size: contain;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
 }
 
 .header-start {
