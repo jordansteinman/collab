@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
   <title>JLR Solutions</title>
   <link rel="stylesheet" href="warblercss.css" />
@@ -10,150 +9,327 @@
   <!--grabs icon for hamburger navbar-->
   <link rel="icon" type="image/x-icon" href="photos/logonotext.png">
   <!--icon to show on browser tab-->
+  <!-- java is used to make it responsive, it uses the onlick based on screen size and switches the nav bar layout from long navbar to hamburger-->
+<!--Mapbox-->
+<!--Resources Used:
+	https://www.mapbox.com/install/javascript
+	https://docs.mapbox.com/mapbox-gl-js/example/popup/
+	https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+	https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+	https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
+	https://dwellsy.com/rentmaps -->
+<!-- https://www.mapbox.com/install/javascript -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 </head>
-  <body>
-
-  <div class="topnav" id="myTopnav">
-    <a href="index.html">Introduction</a>
-    <a href="methodology.html">Methodology</a>
-    <a href="solutions.html" class="selected">Solution</a>
-    <a href="team.html">Meet the Team</a>
-
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-  </div>
-<!-- java is used to make it responsive, it uses the onlick based on screen size and switches the nav bar layout from long navbar to hamburger-->
-
-
-
-
-<header class="imageHeader">
-  <h1 class="header-start">Determining Habitat Suitability for Kirtland's Warbler in South-Central Ontario</h1>  
- 
-</header>
-
-<h3 class="CenterThis">The Solutions</h3>
-<div class="w3-content w3-padding content-div">	
-<div id="container">
+<body>
+<div class="topnav" id="myTopnav">
+<a href="index.html">Introduction</a>
+<a href="methodology.html">Methodology</a>
+<a href="solutions.html" class="selected">Solution</a>
+<a href="team.html">Meet the Team</a>
+<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
 	
-<button class="ExpandingButton">Static Habitat Suitabilty Map</button>
-<div class="Article">  
-<!--   <div class="w3-container w3-padding-32 text-dive" id="about"> -->
-     
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16 border-padding">Linking ArcGIS Survery123 and Dashboard</h3>
-    <p><a href="https://survey123.arcgis.com/share/f972b07d7240483cb05b59b9da0d3575?portalUrl=https://Fleming.maps.arcgis.com" class="buttonnew">Survey123 Form</a></p>
-    <p>If we wanted to have a form where we can report down information like how many turtles you see on a road and in what condition, a cool way to show it would be on screen that combines the information in a cool way, like on a map or in a graph, with all the informative statistics. This can what happen when we link Survey123 and Dashboard together. We learned that we can make sure everyone sees the latest information from the survey form as soon as it's reported down using this method.</p>
-    <p>Here, we have an existing Survey123 form that is conveniently accessible through the link above. Clicking on the link will take us straight to the website where we can access the form using our organization's login credentials. This form is designed to gather specific information efficiently and securely, streamlining the data collection process for our project.</p>
-    <img src="photos/Survey123overview.png" alt="Survey123 Overview" class="imageclass, smallimage">
-    <p>We are presented with this interface when our turtle survey form is clicked upon, and by clicking on the Collaborate tab on top, we can access and adjust various settings as needed. But most importantly, for our specified purpose, we select "PUBLIC" to who we choose to submit the form.</p>
-    <img src="photos/1collabsettings.png" alt= "Collaborate Settings in Form" class = "responsiveImages, imageclass">
-    <img src= "photos/1collabsettings2.png" alt= "Collaborate Settings in Form-2" class = "responsiveImages, imageclass">
-    <p>In AGOL (ArcGIS Online) you can make the hosted feature layer of the form public by enabling public data collection in the Settings tab of the hosted feature layer item. Making the hosted feature layer of the form public and enabling public data collection in the settings tab allows anyone, including those without specific log-in credentials, to access and submit data to the form. This can be useful for gathering information from a wider audience or for making the form more accessible for general use.</p>
-    <img src="photos/1agolsettings.png" alt="Agol Settings" class = "responsiveImages, imageclass">
-    <img src="photos/1agolsettings2(2).png" alt = "Agol Settings-2" class = "responsiveImages, imageclass">
-    <p>Now, here's an example of how the dashboard content pane looks like with the existing form. It includes all the reported attributes from the form and has a Turtles Count as an overall count to all the reportings being made. But if we do not do the linking at all and let it be as an independent Dashboard, it'll only give us the saved data from our own shared dataset while building this Dashboard. Even if it is connected with the form's submitted data, it only exists with the latest data used to make the Dashboard from scratch. No way we can view any live update of the form here, unless we link the two together.</p>
-    <img src="photos/originaldashboard.png" alt="Original Dashboard" class = "imageclass, smallimage">
-    <p>Let's fill up the form as a random user (Daffy Duck a.k.a Celebrity Moment) who is reporting from San Francisco.
-    <img src="photos/samplefilling.png" alt="Sample Filling" class = "imageclass, smallimage">
-    <p>After submitting it, we return back to our Dashboard and refresh the webpage instance.</p>
-    <p>And .  .  .</p>
-    <p>VOILA!</p>
-    <img src="photos/1updateddashboard.png" alt="Updated Dashboard" class="responsiveImages, imageclass">
-    <p>This way we can skip the middle-man and make the whole process more efficient.</p>
-<!--   </div> -->
-</div>
-
-<button class="ExpandingButton">Interactive Habitat Suitability Web Map</button>
-<div class="Article">  
-<!--   <div class="w3-container w3-padding-32 text-dive content-div"> -->
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16 border-padding">ArcGIS Dashboard</h3>
-    <p><a href="https://fleming.maps.arcgis.com/apps/dashboards/521b2e5fd59e407395905035fcef1863" class="buttonnew">Dashboard</a></p>
-
-	<h4>The Final Dashboard</h4>
-	<p>We created a dashboard using ArcGIS Dashboards to be able to show the data that was received from our survey in an interactive and fun, yet informative format. 
-		Different elements were included in the dashboard including the overall map showing the collected points, in indicator stating more important and immediate 
-		information, a list of all the points included in the layer being referenced, a gauge, a pie chart, and a bar graph. The final dashboard we completed can 
-		be found by clicking the button above - if that doesn't load it can be seen in the following screenshot:</p>
-	<img src="photos/1dashboardrz.png" alt="Overall dashboard" class="responsiveImages, imageclass">
-	<hr>
-	<h4>Layer Views</h4>
-	<p>We learned how to utilize layer views in our Dashboard, by filtering fields we wanted to keep anonymous and creating a study area to limit the data shown on the web map.
-	We hid fields like name and email, as well as the automatic fields added by Esri. As well, we drew a polygon around Ontario so any turtles sighted outside could be reported but would not be shown.</p>
-	<img src="photos/Layerviewforsurvey.png" alt="Layer view study area/fields" class="responsiveImages, imageclass">
-	<p>You can see that the layer view worked because when querying the layer in the REST Endpoint, it shows 10 results, or 10 turtle sightings.</p>  
-	<img src="photos/query.PNG" alt="Query results" class="responsiveImages, imageclass">
-	<p>When looking at the Dashboard itself, it only showing 9 turtle sightings, because one of them was in the U.S., so the layer view filters this from the map.</p>
-	<img src="photos/view.PNG" alt="View results" class="responsiveImages, imageclass">
-	<hr>
-
-	<h4>Enhancements and Advanced Formatting</h4>
-	<p>One of the things that was learned in depth and explored more when completing the dashboard was how to further enhance certain traits of specific elements, such 
-		as the indicator and the list elements. Both of these have the options to add advanced formatting to them, as well as add in-line CSS to some of the text 
-		and displays - such as adding padding around the titles of most of the elements to ensure equal spacing.</p>
-	<p>An example of additional HTML/CSS formatting can be seen in the title of the list element on the dashboard, titled "Turtles in area". A screenshot can be seen here:</p>
-	<img src="photos/dashboardhtml.png" alt="HTML in dashboard" class="imageclass, smallimage">
-	<p>The CSS added to the source option in the title formatting allows it to have a darker green background than the rest of the table, a larger font size than the normal 
-		heading sizes, and added padding on the bottom to make the title centered vertically in the green border as well.</p>
-	<p>As mentioned before, along with adding CSS to certain text, Dashboards also gives you the option to do advanced formatting to further enhance your elements and data. 
-		A screenshot can be seen below of the advanced formatting window of the same list element:</p>
-	<img src="photos/dashboardadvfor.png" alt="Advanced formatting using Arcade language" class="imageclass, smallimage">
-	<p>When writing advanced formatting, the code is in the Arcade language. This script is creating a new variable to show in the list called "timeFormatted". This script 
-		is giving the list a way to show the amount of time between when the turtle was seen and the current time. This can be seen in the next screenshot, where the 
-		variable is being called with "{expression/timeFormatted}" in the template box, and having the output of the time at the end of the first lines (i.e. 6 days): </p>
-	<img src="photos/dashboardformat.png" alt="Formatting the list" class="imageclass, smallimage">
-	<h4>Limitations</h4>
-	<p>Although these methods give a nice way to look at the data, there are some limitations of dashboards. These limitations are noted below:</p>
-	<ul>
-		<li>When filling out the source CSS/HTML and switching from the source screen (where the CSS is inputted) to the format screen, if anything is incorrectly 
-			typed in, the format will change to include the entire code (which will then display on the format) and replace certain symbols with their UTF-8 entities.
-			If this occurs, there is no way to undo it to get the old working code back, meaning it will have to be retyped again.</li>
-		<li>Without properly formatting the title of elements to be inside a "div" or something similar, if the dashboard gets downsized enough, the titles inside 
-			elements will be cut out or covered over by the rest of the information in the element, making them unreadable without expanding them, which covers the 
-			rest of the information on the dashboard.</li>
-	</ul>
-	<h3> Additional Customization Methods</h3>
-  	<h4>Custom Icons on Dashboards</h4>
-	<p>A cool tool we learned was creating custom icons inside of Dashboard indicators using free SVG files. To create these icons all you have to do is go into the "Indicator" tab and click on the "Add icon", inside you will have the option to choose a custom icon.
-	This is where you insert the SVG code that connects to your icon, to get this just download the SVG file and open its page source to get the code. Below is an example of what the workflow looks like in Dashboard.</p>
-	<img src="photos/customIcon.png" alt="Custom Icon" class="imageclass, smallimage">
+<div id='map'></div>
+  <div id="legend">
+	<div><p id='legendtitle'>Habitat Suitability (1 = Least Suitable, 9 = Most Suitable)</h1></div>
+	<div>
+		<div class="leg1"><div>1</div></div>
+		<div class="leg2"><div>2</div></div>
+		<div class="leg3"><div>3</div></div>
+		<div class="leg4"><div>4</div></div>
+		<div class="leg5"><div>5</div></div>
+		<div class="leg6"><div>6</div></div>
+		<div class="leg7"><div>7</div></div>
+		<div class="leg8"><div>8</div></div>
+		<div class="leg9"><div>9</div></div>
+	</div>
+	</div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v11', // style URL
+        center: [-78.6977778, 44.3746760], // starting position
+        zoom: 8, // starting zoom
+  });
+// Rank 1
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+    map.on('load', () => {
+        map.addSource('Rank 1', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank1.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 1',
+            'type': 'fill',
+            'source': 'Rank 1',
+            'layout': {},
+            'paint': {
+                'fill-color': '#A50026',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 1', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 1!<h5>')
+                .addTo(map);
+        });
+// Rank 2
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+ map.on('load', () => {
+        map.addSource('Rank 2', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank2.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 2',
+            'type': 'fill',
+            'source': 'Rank 2',
+            'layout': {},
+            'paint': {
+                'fill-color': '#DE3F2E',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 2', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 2!<h5>')
+                .addTo(map);
+        });
+    
+// Rank 3
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+ map.on('load', () => {
+        map.addSource('Rank 3', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank3.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 3',
+            'type': 'fill',
+            'source': 'Rank 3',
+            'layout': {},
+            'paint': {
+                'fill-color': '#F88E52',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 3', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 3!<h5>')
+                .addTo(map);
+        });
+    
+// Rank 4
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+ map.on('load', () => {
+        map.addSource('Rank 4', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank4.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 4',
+            'type': 'fill',
+            'source': 'Rank 4',
+            'layout': {},
+            'paint': {
+                'fill-color': '#FED480',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+    map.on('click', 'Rank 4', (e) => {
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML('<h5>Rank 4!<h5>')
+            .addTo(map);
+    });
+    
+// Rank 5
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+map.on('load', () => {
+        map.addSource('Rank 5', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank5.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 5',
+            'type': 'fill',
+            'source': 'Rank 5',
+            'layout': {},
+            'paint': {
+                'fill-color': '#FFFFBF',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 5', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 5!<h5>')
+                .addTo(map);
+        });
+    
+// Rank 6
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+ map.on('load', () => {
+        map.addSource('Rank 6', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank6.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 6',
+            'type': 'fill',
+            'source': 'Rank 6',
+            'layout': {},
+            'paint': {
+                'fill-color': '#CCEA83',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 6', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 6!<h5>')
+                .addTo(map);
+        });
+    
+// Rank 7
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+ map.on('load', () => {
+        map.addSource('Rank 7', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank7.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 7',
+            'type': 'fill',
+            'source': 'Rank 7',
+            'layout': {},
+            'paint': {
+                'fill-color': '#86CB66',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 7', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 7!<h5>')
+                .addTo(map);
+        });
+// Rank 8
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+ map.on('load', () => {
+        map.addSource('Rank 8', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: 'data/Rank8.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 8',
+            'type': 'fill',
+            'source': 'Rank 8',
+            'layout': {},
+            'paint': {
+                'fill-color': '#2DA155',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 8', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 8!<h5>')
+                .addTo(map);
+        });
+    
+// Rank 9
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+ map.on('load', () => {
+        map.addSource('Rank 9', {
+            type: 'geojson',
+            data: 'data/Rank9.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 9',
+            'type': 'fill',
+            'source': 'Rank 9',
+            'layout': {},
+            'paint': {
+                'fill-color': '#006837',
+                'fill-opacity': 0.5
+            }
+        });
+ });
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 9', (e) => {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 9!<h5>')
+                .addTo(map);
+        });
 	
-	<h4>Stacking Element on Dashboard </h4>
-	<p> There is a visualization trick in Dashboard that allow you to stack elements together like graphs, indicators, and gauges into one element. Each element added gets its own tab that the user can rename. This allows the user to add more information onto the Dashboard since it reduces space.
-	This can be done by adding new elements on top of each other and holding "Shift", this will stack them together within the same space. Below is an example of the workflow within Dashboard. </p>
-	<img src="photos/stack.png" alt="Stack Element" class="imageclass, smallimage"> 
-	<img src="photos/pie.png" alt="Stack Element 2" class="imageclass, smallimage">
-	<hr>
-<!--   </div> -->
-</div>
-
-<button class="ExpandingButton">ArcGIS Pro vs 'Where to Work' App</button>
-<div class="Article">  
-<!--     <div class="w3-container w3-padding-32 text-dive"> -->
-	<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16 border-padding">ArcGIS StoryMaps</h3>
-	<p><a href="https://storymaps.arcgis.com/stories/15bdd764142b496a84e5539e26ce017d" class="buttonnew">StoryMap</a></p>
-	<h4>Custom Theme</h4>
-	<p>To make our ArcGIS StoryMap we first made a custom theme called 'Turtles', which used the same colour as the bottom of the header. 
-	This allowed our StoryMap to flow smoothly rather than having a harsh divide between elements.</p>
-	<img src="photos/theme.png" alt="StoryMaps custom theme" class="imageclass, smallimage">
-	<p>We also used a custom separator to fit our overall message, making sure to have a transparent background so it blends in seamlessly.</p>
-	<img src="photos/separator.png" alt="Custom separator" class="imageclass, smallimage">	
-	<hr>
-	<h4>Interactive Maps</h4>
-	<p>Our StoryMap has a map tour and an embedded web map from the results of our Survey123 form, letting the user move around and interact with specific points to get more information.</p>
-	<img src="photos/maptour.png" alt="StoryMaps map tour" class="responsiveImages, imageclass">
-	<img src="photos/peterborough.png" alt="Map tour gallery" class="responsiveImages, imageclass">
-	<hr>
-	<h4>Embedded Link Cards</h4>
-	<p>We embedded our other solutions (Survey123 form, Dashboard, and web map), so that users could easily click on the cards and see how the different
-	solutions could be combined.</p>
-	<img src="photos/dashboard.png" alt="Dashboard embed card" class="responsiveImages, imageclass">
-	<img src="photos/survey.png" alt="Survey123 embed card" class="responsiveImages, imageclass">
-<!--     </div> -->
-</div>
-	  
-<!-- End page content -->
-</div>
-</div>
-
+// Legend code learned with:
+// https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
+// https://dwellsy.com/rentmaps
+    class LegendControl {
+      onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('div');
+        this._container.className = 'legend';
+        return this._container;
+      }
+      onRemove() {
+        this._container.parentNode.removeChild(this._container);
+        this._map = undefined;
+      }
+    }
+    map.addControl(new LegendControl(), 'bottom-right');
+</script>
+</body>
 <footer class="w3-center w3-padding-16 bottom" id="footer">
   <h2 id = "FooterTitle" >JLR Solutions</h2>
   <p id = "FooterTagline">From Pixels to Plumage.</p>
@@ -186,5 +362,4 @@
   <p id="Copyright">&copy; JLR Solutions. All rights reserved. </p>
 </footer>
 <script src="warbler.js"></script>
-</body>
 </html>
