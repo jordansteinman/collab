@@ -561,3 +561,50 @@ text-align: center;
     width: auto;
     height: 100%; 
 }
+
+/* Interactive web map css */
+body { margin: 0; padding: 0; }
+#map { height: 100vh; width: 100%; }
+/* Legend CSS learned with:
+https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
+https://dwellsy.com/rentmaps */
+#legend {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	width: 500px;
+	padding: 5px;
+	background: white;
+	height: 50px;
+	height: 60px;
+	border-radius:5px;
+	box-shadow: 2px 2px 10px #ccc;
+}
+#legend > div {
+	display: flex;
+}
+#legend > div > div {
+	width: 15%;
+	height: 20px;
+}
+#legend > div > div > div {
+	font-size: 12px;
+	margin-top: 22px;
+	color: #333;
+	text-align: center;
+}
+.leg1 { background-color: #A50026; }
+.leg2 { background-color: #DE3F2E; }
+.leg3 { background-color: #F88E52; }
+.leg4 { background-color: #FED480; }
+.leg5 { background-color: #FFFFBF; }
+.leg6 { background-color: #CCEA83; }
+.leg7 { background-color: #86CB66; }
+.leg8 { background-color: #2DA155; }
+.leg9 { background-color: #006837; }
+#legendtitle {
+    font-size: 15px;
+    margin: 0;
+}
