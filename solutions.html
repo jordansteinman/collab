@@ -46,49 +46,68 @@
 		<div class="leg8"><div>8</div></div>
 		<div class="leg9"><div>9</div></div>
 	</div>
-	</div>
+    </div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v12', // style URL
-        center: [-78.6977778, 44.3746760], // starting position
-        zoom: 8, // starting zoom
+    style: 'mapbox://styles/laurarbc/clwd06nel01vz01ox8bjlhgce',
+        center: [-78.6977778, 44.3746760],
+        zoom: 8,
   });
 // Rank 1
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
-    map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 1', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank1.geojson'
         });
-        map.addLayer({
-            'id': 'Rank 1',
-            'type': 'fill',
-            'source': 'Rank 1',
-            'layout': {},
-            'paint': {
-                'fill-color': '#A50026',
-                'fill-opacity': 0.5
-            }
-        });
- });
+        map.addLayer(
+            {
+		'id': 'Rank 1',
+		'type': 'fill',
+		'source': 'Rank 1',
+		'layout': {},
+		'paint': {
+			'fill-color': '#A50026',
+			'fill-opacity': 0.5
+		}
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 1', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 1<h5>')
                 .addTo(map);
         });
 // Rank 2
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
- map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 2', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank2.geojson'
         });
         map.addLayer({
@@ -100,13 +119,15 @@
                 'fill-color': '#DE3F2E',
                 'fill-opacity': 0.5
             }
-        });
- });
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 2', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 2<h5>')
                 .addTo(map);
@@ -114,10 +135,18 @@
     
 // Rank 3
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
- map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 3', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank3.geojson'
         });
         map.addLayer({
@@ -129,13 +158,15 @@
                 'fill-color': '#F88E52',
                 'fill-opacity': 0.5
             }
-        });
- });
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 3', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 3<h5>')
                 .addTo(map);
@@ -143,10 +174,18 @@
     
 // Rank 4
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
- map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 4', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank4.geojson'
         });
         map.addLayer({
@@ -158,13 +197,15 @@
                 'fill-color': '#FED480',
                 'fill-opacity': 0.5
             }
-        });
- });
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
     map.on('click', 'Rank 4', (e) => {
-        new mapboxgl.Popup()
+        new mapboxgl.Popup({ className: "popups" })
             .setLngLat(e.lngLat)
             .setHTML('<h5>Rank 4<h5>')
             .addTo(map);
@@ -172,10 +213,18 @@
     
 // Rank 5
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
 map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 5', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank5.geojson'
         });
         map.addLayer({
@@ -187,24 +236,33 @@ map.on('load', () => {
                 'fill-color': '#FFFFBF',
                 'fill-opacity': 0.5
             }
-        });
- });
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 5', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 5<h5>')
                 .addTo(map);
         });
-    
 // Rank 6
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
- map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 6', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank6.geojson'
         });
         map.addLayer({
@@ -216,24 +274,33 @@ map.on('load', () => {
                 'fill-color': '#CCEA83',
                 'fill-opacity': 0.5
             }
-        });
- });
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 6', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 6<h5>')
                 .addTo(map);
         });
-    
 // Rank 7
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
- map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 7', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank7.geojson'
         });
         map.addLayer({
@@ -245,23 +312,33 @@ map.on('load', () => {
                 'fill-color': '#86CB66',
                 'fill-opacity': 0.5
             }
-        });
- });
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 7', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 7<h5>')
                 .addTo(map);
         });
 // Rank 8
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
- map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 8', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'data/Rank8.geojson'
         });
         map.addLayer({
@@ -273,46 +350,58 @@ map.on('load', () => {
                 'fill-color': '#2DA155',
                 'fill-opacity': 0.5
             }
-        });
- });
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 8', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 8<h5>')
                 .addTo(map);
         });
-    
 // Rank 9
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
- map.on('load', () => {
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+map.on('load', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
         map.addSource('Rank 9', {
             type: 'geojson',
             data: 'data/Rank9.geojson'
         });
-        map.addLayer({
-            'id': 'Rank 9',
-            'type': 'fill',
-            'source': 'Rank 9',
-            'layout': {},
-            'paint': {
-                'fill-color': '#006837',
-                'fill-opacity': 0.5
-            }
-        });
- });
+        map.addLayer(
+            {
+                'id': 'Rank 9',
+		'type': 'fill',
+		'source': 'Rank 9',
+		'layout': {},
+		'paint': {
+			'fill-color': '#006837',
+			'fill-opacity': 0.5
+		}
+            },
+            firstSymbolId
+        );
+    });
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
         map.on('click', 'Rank 9', (e) => {
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 9<h5>')
                 .addTo(map);
         });
-	
 // Legend code learned with:
 // https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
 // https://dwellsy.com/rentmaps
@@ -329,9 +418,8 @@ map.on('load', () => {
       }
     }
     map.addControl(new LegendControl(), 'bottom-right');
-
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
-map.addControl(new mapboxgl.ScaleControl(), 'top-right');
+    map.addControl(new mapboxgl.ScaleControl(), 'top-right');
 </script>
 </body>
 <footer class="w3-center w3-padding-16 bottom" id="footer">
