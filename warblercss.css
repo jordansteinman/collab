@@ -1,4 +1,3 @@
-
 .imageHeader {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("photos/warblerbackground2.png");
     background-size: cover;
@@ -57,10 +56,16 @@ h3  {
 	color: Black;
 	border-bottom: 3px solid #ccc!important;
 }
-h4, h5 {
+h4 {
     font-family: 'Trebuchet MS',sans-serif;
-	font-size: 20px;
-	color: Black;
+    font-size: 20px;
+    color: Black;
+}
+h5 {
+    font-family: 'Trebuchet MS',sans-serif;
+    font-size: 20px;
+    color: Black;
+    margin: 0 0 0 0;
 }
 .content-div{
 	max-width:2000px;
@@ -606,4 +611,7 @@ https://dwellsy.com/rentmaps */
 #legendtitle {
     font-size: 15px;
     margin: 0 0 3px 0
+}
+.popups .mapboxgl-popup-content {
+    padding: 20px 15px 20px 15px;
 }
