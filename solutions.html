@@ -33,6 +33,14 @@
 </div>
 	
 <div id='map'></div>
+<div id="menu">
+    <input id="styles/mapbox/satellite-streets-v12" type="radio" name="rtoggle" value="satellite" checked="checked">
+    <label for="styles/mapbox/satellite-streets-v12">Satellite</label>
+    <input id="styles/mapbox/light-v11" type="radio" name="rtoggle" value="light">
+    <label for="styles/mapbox/light-v11">Light</label>
+    <input id="styles/mapbox/streets-v12" type="radio" name="rtoggle" value="streets">
+    <label for="styles/mapbox/streets-v12">Streets</label>
+</div>
   <div id="legend">
 	<div><p id='legendtitle'>Habitat Suitability Ranking (1 = Least Suitable, 9 = Most Suitable)</h1></div>
 	<div>
@@ -51,14 +59,28 @@
   mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/laurarbc/clwd06nel01vz01ox8bjlhgce',
+	style: 'mapbox://styles/mapbox/satellite-streets-v12',
         center: [-78.6977778, 44.3746760],
-        zoom: 8,
+        zoom: 8.2,
   });
+    // Add source and layer whenever base style is loaded
+    map.on('style.load', () => {
+        addAdditionalSourceAndLayer();
+    });
+    const layerList = document.getElementById('menu');
+    const inputs = layerList.getElementsByTagName('input');
+    for (const input of inputs) {
+        input.onclick = (layer) => {
+            const layerId = layer.target.id;
+            map.setStyle('mapbox://' + layerId);
+        };
+    }
 // Rank 1
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -97,7 +119,9 @@ map.on('load', () => {
 // Rank 2
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -136,7 +160,9 @@ map.on('load', () => {
 // Rank 3
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -175,7 +201,9 @@ map.on('load', () => {
 // Rank 4
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -214,7 +242,9 @@ map.on('load', () => {
 // Rank 5
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -252,7 +282,9 @@ map.on('load', () => {
 // Rank 6
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -290,7 +322,9 @@ map.on('load', () => {
 // Rank 7
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -328,7 +362,9 @@ map.on('load', () => {
 // Rank 8
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -366,7 +402,9 @@ map.on('load', () => {
 // Rank 9
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
-map.on('load', () => {
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
