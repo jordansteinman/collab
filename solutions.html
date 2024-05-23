@@ -71,10 +71,9 @@ function resizeMap() {
     var mapDiv = document.getElementById('map');
     map.resize();
 }
-
-// Resize map when window is resized
 window.addEventListener('resize', resizeMap);
-	
+window.addEventListener('load', resizeMap);
+
     // Add source and layer whenever base style is loaded
     map.off('style.load');
     map.on('styledata', () => {
