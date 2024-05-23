@@ -616,7 +616,17 @@ https://dwellsy.com/rentmaps */
     padding: 20px 15px 20px 15px;
 }
 #menu {
-    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 500px;
+    padding: 5px;
+    background: white;
+    height: 65px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #ccc;
 }
 #menutitle {
     font-size: 15px;
