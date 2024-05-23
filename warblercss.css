@@ -616,8 +616,8 @@ https://dwellsy.com/rentmaps */
 }
 #menu {
     position: absolute;
-    bottom: 0;
-    margin-left: 10px;
+    bottom: 70px;
+    margin-right: 10px;
     margin-bottom: 10px;
     width: 210px;
     padding: 5px;
@@ -625,6 +625,7 @@ https://dwellsy.com/rentmaps */
     height: 65px;
     border-radius: 5px;
     box-shadow: 2px 2px 10px #ccc;
+    right: 0;
 }
 #menutitle {
     font-size: 15px;
