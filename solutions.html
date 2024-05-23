@@ -112,6 +112,7 @@ map.on('styledata', () => {
             firstSymbolId
         );
     });
+}
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
@@ -461,7 +462,6 @@ map.on('styledata', () => {
       }
     }
     map.addControl(new LegendControl(), 'bottom-right');
-}
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
     map.addControl(new mapboxgl.ScaleControl(), 'top-right');
 </script>
