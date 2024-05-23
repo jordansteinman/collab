@@ -569,7 +569,7 @@ text-align: center;
 
 /* Interactive web map css */
 body { margin: 0; padding: 0; }
-#map { height: 100vh; width: 100%; }
+#map { height: 94vh; width: 100%; }
 /* Legend CSS learned with:
 https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
 https://dwellsy.com/rentmaps */
@@ -578,7 +578,7 @@ https://dwellsy.com/rentmaps */
 	bottom: 0;
 	right: 0;
 	margin-right: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
 	padding: 5px;
 	background: white;
 	height: 85px;
@@ -622,7 +622,7 @@ https://dwellsy.com/rentmaps */
     position: absolute;
     bottom: 70px;
     margin-right: 10px;
-    margin-bottom: 35px;
+    margin-bottom: 50px;
     width: 210px;
     padding: 5px;
     background: white;
