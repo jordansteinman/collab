@@ -82,6 +82,8 @@
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
 // Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+this.map.getSource('Rank 1').setData(data);
+if (!this.map.getLayer('Rank 1')) {
 map.off('style.load');
 map.on('styledata', () => {
         const layers = map.getStyle().layers;
