@@ -92,15 +92,15 @@ map.on('styledata', () => {
                 break;
             }
         }
-        map.addSource('Rank1', {
+        map.addSource('Rank 1', {
             type: 'geojson',
             data: 'data/Rank1.geojson'
         });
         map.addLayer(
             {
-		'id': 'Rank1',
+		'id': 'Rank 1',
 		'type': 'fill',
-		'source': 'Rank1',
+		'source': 'Rank 1',
 		'layout': {},
 		'paint': {
 			'fill-color': '#A50026',
@@ -113,7 +113,7 @@ map.on('styledata', () => {
 // Popup code learned with:
 // https://docs.mapbox.com/mapbox-gl-js/example/popup/
 // https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank1', (e) => {
+        map.on('click', 'Rank 1', (e) => {
             new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 1<h5>')
