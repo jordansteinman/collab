@@ -620,7 +620,7 @@ https://dwellsy.com/rentmaps */
     bottom: 0;
     margin-left: 10px;
     margin-bottom: 10px;
-    width: 500px;
+    width: 240px;
     padding: 5px;
     background: white;
     height: 65px;
@@ -632,8 +632,8 @@ https://dwellsy.com/rentmaps */
     margin: 0 0 3px 0
 }
 .options {
-font-size: 12px;
-	margin-top: 22px;
-	color: #333;
-	text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #333;
+    text-align: left;
 }
