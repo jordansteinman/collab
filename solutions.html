@@ -69,7 +69,6 @@
     // Add source and layer whenever base style is loaded
     map.off('style.load');
     map.on('styledata', () => {
-        addAdditionalSourceAndLayer();
     });
     const layerList = document.getElementById('menu');
     const inputs = layerList.getElementsByTagName('input');
