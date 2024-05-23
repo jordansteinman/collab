@@ -66,6 +66,15 @@
         center: [-78.6977778, 44.3746760],
         zoom: 8,
   });
+
+function resizeMap() {
+    var mapDiv = document.getElementById('map');
+    map.resize();
+}
+
+// Resize map when window is resized
+window.addEventListener('resize', resizeMap);
+	
     // Add source and layer whenever base style is loaded
     map.off('style.load');
     map.on('styledata', () => {
