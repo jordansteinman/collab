@@ -611,6 +611,10 @@ https://dwellsy.com/rentmaps */
     font-size: 15px;
     margin: 0 0 3px 0
 }
+#legendsubtitle {
+    font-size: 13px;
+    margin: 0 0 3px 0
+}
 .popups .mapboxgl-popup-content {
     padding: 20px 15px 20px 15px;
 }
