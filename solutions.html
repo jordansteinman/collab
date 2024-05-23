@@ -67,7 +67,8 @@
         zoom: 8,
   });
     // Add source and layer whenever base style is loaded
-    map.on('style.load', () => {
+    map.off('style.load');
+    map.on('styledata', () => {
         addAdditionalSourceAndLayer();
     });
     const layerList = document.getElementById('menu');
