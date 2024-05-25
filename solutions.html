@@ -92,15 +92,15 @@ map.on('styledata', () => {
                 break;
             }
         }
-        map.addSource('Rank 1', {
+        map.addSource('Waterbodies', {
             type: 'geojson',
             data: 'data/Waterbodies.geojson'
         });
         map.addLayer(
             {
-		'id': 'Rank 1',
+		'id': 'Waterbodies',
 		'type': 'fill',
-		'source': 'Rank 1',
+		'source': 'Waterbodies',
 		'layout': {},
 		'paint': {
 			'fill-color': '#87CEEB',
