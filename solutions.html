@@ -80,6 +80,36 @@
             map.setStyle('mapbox://' + layerId);
         };
     }
+
+// Waterbodies.geojson
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 1', {
+            type: 'geojson',
+            data: 'data/Waterbodies.geojson'
+        });
+        map.addLayer(
+            {
+		'id': 'Rank 1',
+		'type': 'fill',
+		'source': 'Rank 1',
+		'layout': {},
+		'paint': {
+			'fill-color': '#87CEEB',
+			'fill-opacity': 0.5
+		}
+            },
+            firstSymbolId
+        );
+    });
 // Rank 1
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
