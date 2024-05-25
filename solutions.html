@@ -96,15 +96,20 @@ map.on('styledata', () => {
             type: 'geojson',
             data: 'data/Waterbodies.geojson'
         });
+	map.moveLayer(Waterbodies);
         map.addLayer(
             {
 		'id': 'Waterbodies',
 		'type': 'fill',
 		'source': 'Waterbodies',
-		'layout': {},
+		"terrain": {
+                   "source": "mapbox-raster-dem",
+                   "exaggeration": 2
+                  }
+		'layout': {},    
 		'paint': {
 			'fill-color': '#87CEEB',
-			'fill-opacity': 0.5
+			//'fill-opacity': 0
 		}
             },
             firstSymbolId
