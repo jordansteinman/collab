@@ -71,6 +71,11 @@
     // Add source and layer whenever base style is loaded
     map.off('style.load');
     map.on('styledata', () => {
+	    // Ensure Waterbodies layer is on top after the style is loaded
+        if (map.getLayer('Waterbodies')) {
+            map.moveLayer('Waterbodies');
+    }
+});
     });
     const layerList = document.getElementById('menu');
     const inputs = layerList.getElementsByTagName('input');
@@ -78,6 +83,12 @@
         input.onclick = (layer) => {
             const layerId = layer.target.id;
             map.setStyle('mapbox://' + layerId);
+	    map.once('styledata', () => {
+            // Ensure Waterbodies layer is on top after style change
+            if (map.getLayer('Waterbodies')) {
+                map.moveLayer('Waterbodies');
+            }
+        });
         };
     }
 
@@ -110,7 +121,9 @@ map.on('styledata', () => {
             },
             firstSymbolId
         );
-	//map.moveLayer('Waterbodies');
+	if (map.getLayer('Waterbodies')) {
+	    map.moveLayer('Waterbodies');
+	}
     });
 // Rank 1
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
