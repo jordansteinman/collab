@@ -81,37 +81,6 @@
         };
     }
 
-// Waterbodies.geojson
-map.off('style.load');
-map.on('styledata', () => {
-        const layers = map.getStyle().layers;
-        let firstSymbolId;
-        for (const layer of layers) {
-            if (layer.type === 'symbol') {
-                firstSymbolId = layer.id;
-                break;
-            }
-        }
-        map.addSource('Waterbodies', {
-            type: 'geojson',
-            data: 'data/Waterbodies.geojson'
-        });
-        map.addLayer(
-            {
-		'id': 'Waterbodies',
-		'type': 'fill',
-		'source': 'Waterbodies',
-		'layout': {}, 
-		'paint': {
-			'fill-color': '#87CEEB',
-		}
-			
-		
-            },
-            firstSymbolId
-        );
-	
-    });
 // Rank 1
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
@@ -477,6 +446,37 @@ map.on('styledata', () => {
                 .setHTML('<h5>Rank 9<h5>')
                 .addTo(map);
         });
+// Waterbodies.geojson
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Waterbodies', {
+            type: 'geojson',
+            data: 'data/Waterbodies.geojson'
+        });
+        map.addLayer(
+            {
+		'id': 'Waterbodies',
+		'type': 'fill',
+		'source': 'Waterbodies',
+		'layout': {}, 
+		'paint': {
+			'fill-color': '#87CEEB',
+		}
+			
+		
+            },
+            firstSymbolId
+        );
+	
+    });
 // Legend code learned with:
 // https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
 // https://dwellsy.com/rentmaps
