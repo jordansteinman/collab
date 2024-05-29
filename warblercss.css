@@ -661,3 +661,7 @@ https://dwellsy.com/rentmaps */
 #topbutton:hover {
   background-color: #27233a; 
 }
+
+.hide {
+  display: none;
+}
