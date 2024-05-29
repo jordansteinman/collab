@@ -642,3 +642,22 @@ https://dwellsy.com/rentmaps */
     text-align: left;
     font-family: 'Trebuchet MS',sans-serif
 }
+
+/*Back to top button https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
+#topbutton {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99;
+  border: 1px solid #f6eadd;
+  background-color: #505168;
+  color: #f6eadd;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+#topbutton:hover {
+  background-color: #27233a; 
+}
