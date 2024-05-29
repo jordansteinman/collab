@@ -665,6 +665,8 @@ https://dwellsy.com/rentmaps */
 /*class to make button appear*/
 .top-show{
   display: block;
+  transition: ease-in;
+  transition-duration: 200ms;
 }
 
 /*class to hide button*/
