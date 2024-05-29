@@ -662,6 +662,12 @@ https://dwellsy.com/rentmaps */
   background-color: #27233a; 
 }
 
+/*class to make button appear*/
+.top-show{
+  display: block;
+}
+
+/*class to hide button*/
 .hide {
   display: none;
 }
