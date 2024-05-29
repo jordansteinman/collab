@@ -650,20 +650,20 @@ https://dwellsy.com/rentmaps */
   bottom: 10px;
   z-index: 99;
   border: 1px solid #f6eadd;
-  background-color: #505168;
+  background-color: #88a4c9;
   color: #f6eadd;
   opacity: 0.8;
   cursor: pointer;
-  padding: 8px;
+  padding: 9px;
   border-radius: 12px;
   font-size: 16px;
   transition: ease-in;
-  transition-duration: 200ms;
+  transition-duration: 100ms;
 }
 
 #topbutton:hover {
-  background-color: #27233a;
-  opacity: 1;
+  background-color: #88a4c9;
+  opacity: 0.9;
 }
 
 /*class to make button appear*/
