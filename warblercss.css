@@ -647,14 +647,14 @@ https://dwellsy.com/rentmaps */
 #topbutton {
   position: fixed;
   right: 15px;
-  bottom: 15px;
+  bottom: 10px;
   z-index: 99;
   border: 1px solid #f6eadd;
   background-color: #505168;
   color: #f6eadd;
-  opacity: 0.6;
+  opacity: 0.8;
   cursor: pointer;
-  padding: 10px;
+  padding: 8px;
   border-radius: 12px;
   font-size: 16px;
   transition: ease-in;
@@ -662,7 +662,8 @@ https://dwellsy.com/rentmaps */
 }
 
 #topbutton:hover {
-  background-color: #27233a; 
+  background-color: #27233a;
+  opacity: 1;
 }
 
 /*class to make button appear*/
