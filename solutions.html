@@ -159,17 +159,7 @@ map.on('styledata', () => {
             firstSymbolId
         );
     });
-// Red/Green colour scheme: DE3F2E
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 2', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 2<h5>')
-                .addTo(map);
-        });
-    
+
 // Rank 3
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
@@ -288,16 +278,7 @@ map.on('styledata', () => {
             firstSymbolId
         );
     });
-// Red/Green colour scheme: FFFFBF
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 5', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 5<h5>')
-                .addTo(map);
-        });
+
 // Rank 6
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
@@ -372,16 +353,7 @@ map.on('styledata', () => {
             firstSymbolId
         );
     });
-// Red/Green colour scheme: 86CB66
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 7', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 7<h5>')
-                .addTo(map);
-        });
+
 // Rank 8
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
@@ -414,16 +386,7 @@ map.on('styledata', () => {
             firstSymbolId
         );
     });
-// Red/Green colour scheme: 2DA155
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 8', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 8<h5>')
-                .addTo(map);
-        });
+
 // Rank 9
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
@@ -457,16 +420,7 @@ map.on('styledata', () => {
             firstSymbolId
         );
     });
-// Red/Green colour scheme: 006837
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 9', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 9<h5>')
-                .addTo(map);
-        });
+
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
 map.off('style.load');
 map.on('styledata', () => {
@@ -515,6 +469,86 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
             new mapboxgl.Popup({ className: "popups" })
                 .setLngLat(e.lngLat)
                 .setHTML('<h5>Rank 1<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: DE3F2E
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 2', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 2<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: F88E52
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 3', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 3<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: FED480
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+    map.on('click', 'Rank 4', (e) => {
+        new mapboxgl.Popup({ className: "popups" })
+            .setLngLat(e.lngLat)
+            .setHTML('<h5>Rank 4<h5>')
+            .addTo(map);
+    });
+// Red/Green colour scheme: FFFFBF
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 5', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 5<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: CCEA83
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 6', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 6<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: 86CB66
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 7', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 7<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: 2DA155
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 8', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 8<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: 006837
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 9', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 9<h5>')
                 .addTo(map);
         });
 
