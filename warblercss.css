@@ -608,15 +608,15 @@ https://dwellsy.com/rentmaps */
 .leg8 { background-color: #2DA155; }
 .leg9 { background-color: #006837; } */
 
-.leg1 { background-color: #FFC70D; }
-.leg2 { background-color: #FBB556; }
-.leg3 { background-color: #E69300; }
-.leg4 { background-color: #E57D06; }
-.leg5 { background-color: #E26C64; }
-.leg6 { background-color: #CA478C; }
-.leg7 { background-color: #AA23A8; }
-.leg8 { background-color: #7803A5; }
-.leg9 { background-color: #4D02A2; }
+.leg1 { background-color: #FCB900; }
+.leg2 { background-color: #FFAD0A; }
+.leg3 { background-color: #FA9200; }
+.leg4 { background-color: #E66C5D; }
+.leg5 { background-color: #CC4779; }
+.leg6 { background-color: #AA2396; }
+.leg7 { background-color: #970EB2; }
+.leg8 { background-color: #8B08CC; }
+.leg9 { background-color: #7704CF; }
 #legendtitle {
     font-size: 15px;
     margin: 0 0 3px 0
