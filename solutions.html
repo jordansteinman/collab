@@ -126,16 +126,7 @@ map.on('styledata', () => {
             firstSymbolId
         );
     });
-// Red/Green colour scheme: A50026
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 1', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 1<h5>')
-                .addTo(map);
-        });
+
 // Rank 2
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
@@ -515,6 +506,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
         center: [-78.6977778, 44.3746760],
         zoom: 8,
   });
+
+// Red/Green colour scheme: A50026
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 1', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 1<h5>')
+                .addTo(map);
+        });
 
 	
 // Legend code learned with:
