@@ -33,7 +33,7 @@
 </div>
 	
 <div id='map'></div>
-<div id="menu">
+<!--<div id="menu">
 <div><p id='menutitle'>Basemap Options</h1></div>
 <div class="options">
     <input id="styles/mapbox/satellite-streets-v12" type="radio" name="rtoggle" value="satellite" checked="checked">
@@ -43,7 +43,7 @@
     <input id="styles/mapbox/light-v11" type="radio" name="rtoggle" value="light">
     <label for="styles/mapbox/light-v11">Light</label>
     </div>
-</div>
+</div>-->
   <div id="legend">
 	<div><p id='legendtitle'>Habitat Suitability Ranking</p></div>
 	<div><p id='legendsubtitle'>1 = Least Suitable, 9 = Most Suitable</p></div>
@@ -69,17 +69,17 @@
   });
 
     //// Add source and layer whenever base style is loaded
-   map.off('style.load');
-   map.on('styledata', () => {
-   });
-    const layerList = document.getElementById('menu');
-    const inputs = layerList.getElementsByTagName('input');
-    for (const input of inputs) {
-        input.onclick = (layer) => {
-            const layerId = layer.target.id;
-           map.setStyle('mapbox://' + layerId);
-        };
-    }
+  // map.off('style.load');
+  // map.on('styledata', () => {
+   //});
+   // const layerList = document.getElementById('menu');
+   // const inputs = layerList.getElementsByTagName('input');
+  //  for (const input of inputs) {
+    //    input.onclick = (layer) => {
+         //   const layerId = layer.target.id;
+         //  map.setStyle('mapbox://' + layerId);
+      //  };
+  //  }
 
 // Rank 1
 // Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
