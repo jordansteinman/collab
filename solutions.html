@@ -496,7 +496,13 @@ map.on('styledata', () => {
 	
     });
 
-
+mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
+  var map = new mapboxgl.Map({
+    container: 'map',
+	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
+        center: [-78.6977778, 44.3746760],
+        zoom: 8,
+  });
 
 	
 // Legend code learned with:
