@@ -455,10 +455,6 @@ map.on('styledata', () => {
         );
 });
 
-map.off('style.load');
-map.on('idle',function(){
-map.resize()
-});
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
   var map = new mapboxgl.Map({
@@ -578,6 +574,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
     map.addControl(new LegendControl(), 'bottom-right');
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
     map.addControl(new mapboxgl.ScaleControl(), 'top-right');
+
+map.off('style.load');
+map.on('idle',function(){
+map.resize()
+});
+
 </script>
 
 	
