@@ -574,12 +574,12 @@ body { margin: 0; padding: 0; }
 https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
 https://dwellsy.com/rentmaps */
 #legend {
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	right: 0;
-	margin-right: 10px;
-	margin-bottom: 35px;
+	max-width: 300px;
 	padding: 5px;
+	padding-bottom: 90px;
 	background: white;
 	height: 85px;
 	border-radius:5px;
