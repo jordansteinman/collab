@@ -426,7 +426,7 @@ map.on('styledata', () => {
 
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
 map.off('style.load');
-map.on('styledata', () => {
+map.on('styledata.load', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
