@@ -455,9 +455,10 @@ map.on('styledata', () => {
         );
 });
 
+map.off('style.load');
 map.on('idle',function(){
 map.resize()
-})
+});
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
   var map = new mapboxgl.Map({
