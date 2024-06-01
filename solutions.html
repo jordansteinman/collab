@@ -83,6 +83,11 @@
         zoom: 8,
   });
 
+map.off('style.load');
+map.on('idle',function(){
+map.resize()
+});
+	
     //// Add source and layer whenever base style is loaded
   // map.off('style.load');
   // map.on('styledata', () => {
