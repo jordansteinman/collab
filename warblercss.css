@@ -447,8 +447,13 @@ text-align: center;
 	
 /* @media screen and (max-width: 900px) { */
 .responsiveImages {
-  width: auto;
-  height: auto;
+    width: auto;
+    height: auto;
+    max-width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 #container{
