@@ -578,17 +578,17 @@ body { margin: 0; padding: 0; }
 https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
 https://dwellsy.com/rentmaps */
 #legend {
-	position: relative;
+	position: absolute;
 	bottom: 0;
 	right: 0;
 	max-width: 300px;
+	margin-right: 10px;
+	margin-bottom: 15px;
 	padding: 5px;
-	padding-bottom: 90px;
 	background: white;
 	height: 85px;
 	border-radius:5px;
 	box-shadow: 2px 2px 10px #ccc;
-	margin: 5px;
 }
 #legend > div {
 	display: flex;
