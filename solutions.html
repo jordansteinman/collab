@@ -33,14 +33,6 @@
 </div>
 
 <h3 class="CenterThis">Solutions</h3>
-<div id = "container">
-	
-<button class="ExpandingButton">?</button>
-<div class="Article">
-	<p>Hello</p>
-</div>
-<button class="ExpandingButton">?</button>
-<div class="Article">
 
 <div id='map'></div>
 	
@@ -70,9 +62,6 @@
 		<div class="leg9"><div>9</div></div>
 	</div>
   </div>
-
-</div>
-</div>
 	
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
@@ -83,11 +72,7 @@
         zoom: 8,
   });
 
-map.off('style.load');
-map.on('idle',function(){
-map.resize()
-});
-	
+
     //// Add source and layer whenever base style is loaded
   // map.off('style.load');
   // map.on('styledata', () => {
@@ -579,11 +564,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
     map.addControl(new LegendControl(), 'bottom-right');
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
     map.addControl(new mapboxgl.ScaleControl(), 'top-right');
-
-map.off('style.load');
-map.on('idle',function(){
-map.resize()
-});
 
 </script>
 
