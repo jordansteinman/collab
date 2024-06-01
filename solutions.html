@@ -426,7 +426,7 @@ map.on('styledata', () => {
 
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
 map.off('style.load');
-map.on('styledata.load', () => {
+map.on('styledata', () => {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -453,8 +453,6 @@ map.on('styledata.load', () => {
             },
             firstSymbolId
         );
-	
-    map.resize()
 });
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
