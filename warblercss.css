@@ -584,6 +584,7 @@ https://dwellsy.com/rentmaps */
 	height: 85px;
 	border-radius:5px;
 	box-shadow: 2px 2px 10px #ccc;
+	margin: 5px;
 }
 #legend > div {
 	display: flex;
