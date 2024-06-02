@@ -22,10 +22,7 @@
 <!-- https://www.mapbox.com/install/javascript -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-<style>
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
-</style>
+
 </head>
 <body>
 <div class="topnav" id="myTopnav">
@@ -67,50 +64,7 @@ body { margin: 0; padding: 0; }
 	</div>
   </div>
 
-<style>
-    #menu {
-        background: #fff;
-        position: absolute;
-        z-index: 1;
-        top: 10px;
-        right: 10px;
-        border-radius: 3px;
-        width: 120px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        font-family: 'Open Sans', sans-serif;
-    }
 
-    #menu a {
-        font-size: 13px;
-        color: #404040;
-        display: block;
-        margin: 0;
-        padding: 0;
-        padding: 10px;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        text-align: center;
-    }
-
-    #menu a:last-child {
-        border: none;
-    }
-
-    #menu a:hover {
-        background-color: #f8f8f8;
-        color: #404040;
-    }
-
-    #menu a.active {
-        background-color: #3887be;
-        color: #ffffff;
-    }
-
-    #menu a.active:hover {
-        background: #3074a4;
-    }
-</style>
-<nav id="menu"></nav>
 
 <script>
 
@@ -122,33 +76,6 @@ body { margin: 0; padding: 0; }
         zoom: 8,
   });
 
-// WTW.geojson
-map.off('style.load');
-map.on('load', () => {
-        const layers = map.getStyle().layers;
-        let firstSymbolId;
-       for (const layer of layers) {
-           if (layer.type === 'symbol') {
-               firstSymbolId = layer.id;
-                break;
-          
-        map.addSource('WTW', {
-            type: 'geojson',
-            data: 'data/WTW.geojson'
-        });
-        map.addLayer({
-		'id': 'WTW',
-		'type': 'fill',
-		'source': 'WTW',
-		'layout': { 
-			'visibility': 'visible',
-			  }, 
-		'paint': {
-			'fill-color': '#8A2BE2',
-		},
-		'source-layer': 'WTW'
-          
-});
 
 // Legend code learned with:
 // https://www.youtube.com/watch?v=Fz5SywxI06M&t=585s
@@ -169,61 +96,482 @@ map.on('load', () => {
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
     map.addControl(new mapboxgl.ScaleControl(), 'top-right');
 
-	
-	//new
- // After the last frame rendered before the map enters an "idle" state.
-    map.on('idle', () => {
-        // If these two layers were not added to the map, abort
-        if (!map.getLayer('WTW')) {
-            return;
-        }
 
-        // Enumerate ids of the layers.
-        const toggleableLayerIds = ['WTW'];
+    //// Add source and layer whenever base style is loaded
+  // map.off('style.load');
+  //map.on('styledata', () => {
+   //});
+   // const layerList = document.getElementById('menu');
+   // const inputs = layerList.getElementsByTagName('input');
+  //  for (const input of inputs) {
+    //    input.onclick = (layer) => {
+         //   const layerId = layer.target.id;
+         //  map.setStyle('mapbox://' + layerId);
+      //  };
+  //  }
 
-        // Set up the corresponding toggle button for each layer.
-        for (const id of toggleableLayerIds) {
-            // Skip layers that already have a button set up.
-            if (document.getElementById(id)) {
-                continue;
+// Rank 1
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+//map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
             }
-
-            // Create a link.
-            const link = document.createElement('a');
-            link.id = id;
-            link.href = '#';
-            link.textContent = id;
-            link.className = 'active';
-
-            // Show or hide layer when the toggle is clicked.
-            link.onclick = function (e) {
-                const clickedLayer = this.textContent;
-                e.preventDefault();
-                e.stopPropagation();
-
-                const visibility = map.getLayoutProperty(
-                    clickedLayer,
-                    'visibility'
-                );
-
-                // Toggle layer visibility by changing the layout object's visibility property.
-                if (visibility === 'visible') {
-                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-                    this.className = '';
-                } else {
-                    this.className = 'active';
-                    map.setLayoutProperty(
-                        clickedLayer,
-                        'visibility',
-                        'visible'
-                    );
-                }
-            };
-
-            const layers = document.getElementById('menu');
-            layers.appendChild(link);
         }
+        map.addSource('Rank 1', {
+            type: 'geojson',
+            data: 'data/Rank1.geojson'
+        });
+        map.addLayer(
+            {
+		'id': 'Rank 1',
+		'type': 'fill',
+		'source': 'Rank 1',
+		'layout': {},
+		'paint': {
+			'fill-color': '#FCB900',
+			'fill-opacity': 0.7,
+			'fill-outline-color': 'rgba(0,0,0,0)'
+		}
+            },
+            firstSymbolId
+        );
     });
+
+// Rank 2
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 2', {
+            type: 'geojson',
+            data: 'data/Rank2.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 2',
+            'type': 'fill',
+            'source': 'Rank 2',
+            'layout': {},
+            'paint': {
+                'fill-color': '#FFAD0A',
+                'fill-opacity': 0.7,
+		'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+            },
+            firstSymbolId
+        );
+    });
+
+// Rank 3
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 3', {
+            type: 'geojson',
+            data: 'data/Rank3.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 3',
+            'type': 'fill',
+            'source': 'Rank 3',
+            'layout': {},
+            'paint': {
+                'fill-color': '#FA9200',
+                'fill-opacity': 0.7,
+		'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+            },
+            firstSymbolId
+        );
+    });
+// Red/Green colour scheme: F88E52
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 3', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 3<h5>')
+                .addTo(map);
+        });
+    
+// Rank 4
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 4', {
+            type: 'geojson',
+            data: 'data/Rank4.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 4',
+            'type': 'fill',
+            'source': 'Rank 4',
+            'layout': {},
+            'paint': {
+                'fill-color': '#E66C5D',
+                'fill-opacity': 0.7,
+		'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+            },
+            firstSymbolId
+        );
+    });
+// Red/Green colour scheme: FED480
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+    map.on('click', 'Rank 4', (e) => {
+        new mapboxgl.Popup({ className: "popups" })
+            .setLngLat(e.lngLat)
+            .setHTML('<h5>Rank 4<h5>')
+            .addTo(map);
+    });
+    
+// Rank 5
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 5', {
+            type: 'geojson',
+            data: 'data/Rank5.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 5',
+            'type': 'fill',
+            'source': 'Rank 5',
+            'layout': {},
+            'paint': {
+                'fill-color': '#CC4779',
+                'fill-opacity': 0.7,
+		'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+            },
+            firstSymbolId
+        );
+    });
+
+// Rank 6
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 6', {
+            type: 'geojson',
+            data: 'data/Rank6.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 6',
+            'type': 'fill',
+            'source': 'Rank 6',
+            'layout': {},
+            'paint': {
+                'fill-color': '#AA2396',
+                'fill-opacity': 0.7,
+		'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+            },
+            firstSymbolId
+        );
+    });
+// Red/Green colour scheme: CCEA83
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 6', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 6<h5>')
+                .addTo(map);
+        });
+// Rank 7
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 7', {
+            type: 'geojson',
+            data: 'data/Rank7.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 7',
+            'type': 'fill',
+            'source': 'Rank 7',
+            'layout': {},
+            'paint': {
+                'fill-color': '#970EB2',
+                'fill-opacity': 0.7,
+		'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+            },
+            firstSymbolId
+        );
+    });
+
+// Rank 8
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 8', {
+            type: 'geojson',
+            data: 'data/Rank8.geojson'
+        });
+        map.addLayer({
+            'id': 'Rank 8',
+            'type': 'fill',
+            'source': 'Rank 8',
+            'layout': {},
+            'paint': {
+                'fill-color': '#8B08CC',
+                'fill-opacity': 0.7,
+		'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+            },
+            firstSymbolId
+        );
+    });
+
+// Rank 9
+// Inserting external geojson files learned with: https://docs.mapbox.com/mapbox-gl-js/example/external-geojson/
+// Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
+// Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Rank 9', {
+            type: 'geojson',
+            data: 'data/Rank9.geojson'
+        });
+        map.addLayer(
+            {
+                'id': 'Rank 9',
+		'type': 'fill',
+		'source': 'Rank 9',
+		'layout': {},
+		'paint': {
+			'fill-color': '#7704CF',
+			'fill-opacity': 0.7,
+			'fill-outline-color': 'rgba(0,0,0,0)'
+		}
+            },
+            firstSymbolId
+        );
+    });
+
+// Waterbodies.geojson, layer from OHN 100K Waterbodies
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Waterbodies', {
+            type: 'geojson',
+            data: 'data/Waterbodies.geojson'
+        });
+        map.addLayer(
+            {
+		'id': 'Waterbodies',
+		'type': 'fill',
+		'source': 'Waterbodies',
+		'layout': {}, 
+		'paint': {
+			'fill-color': '#87CEEB',
+		}
+			
+		
+            },
+            firstSymbolId
+        );
+});
+
+
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwMjZkZmdocCJ9.6HNj3dTSlXvAKuIPoplvrA';
+  var map = new mapboxgl.Map({
+    container: 'map',
+	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
+        center: [-78.6977778, 44.3746760],
+        zoom: 8,
+  });
+
+// Red/Green colour scheme: A50026
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 1', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 1<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: DE3F2E
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 2', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 2<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: F88E52
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 3', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 3<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: FED480
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+    map.on('click', 'Rank 4', (e) => {
+        new mapboxgl.Popup({ className: "popups" })
+            .setLngLat(e.lngLat)
+            .setHTML('<h5>Rank 4<h5>')
+            .addTo(map);
+    });
+// Red/Green colour scheme: FFFFBF
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 5', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 5<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: CCEA83
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 6', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 6<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: 86CB66
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 7', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 7<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: 2DA155
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 8', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 8<h5>')
+                .addTo(map);
+        });
+// Red/Green colour scheme: 006837
+// Popup code learned with:
+// https://docs.mapbox.com/mapbox-gl-js/example/popup/
+// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
+        map.on('click', 'Rank 9', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Rank 9<h5>')
+                .addTo(map);
+        });
+
+	
 
 
 
