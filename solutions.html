@@ -176,56 +176,47 @@ map.on('styledata', () => {
                 break;
             }
         }
-  var rankFiles = [
-	  'data/Rank 1.geojson',
-	  'data/Rank 2.geojson',
-	  'data/Rank 3.geojson',
-	  'data/Rank 4.geojson',
-	  'data/Rank 5.geojson',
-	  'data/Rank 6.geojson',
-	  'data/Rank 7.geojson',
-	  'data/Rank 8.geojson',
-	  'data/Rank 9.geojson'
-	  ];
-var rankColors = [
-    '#FCB900', // Rank 1 color
-    '#FF5733', // Rank 2 color
-    '#FF5733', // Rank 2 color
-    '#FF5733', // Rank 2 color
-    '#FF5733', // Rank 2 color
-    '#FF5733', // Rank 2 color
-    '#FF5733', // Rank 2 color
-    '#FF5733', // Rank 2 color
-    '#FF5733', // Rank 2 color
-    // Add colors for all other ranks
-];
-// Loop through each rank GeoJSON file
-rankFiles.forEach(function(filePath, index) {
-    // Load each GeoJSON file
-    fetch(filePath)
-        .then(response => response.json())
-        .then(data => {
-            // Add a source for each rank
-            map.addSource('Rank' + (index + 1), {
-                type: 'geojson',
-                data: data
-            });
+ // Initialize merged GeoJSON data
+    const mergedRankData = {
+        type: 'FeatureCollection',
+        features: []
+    };
 
-            // Add a layer for each rank with a different color
-            map.addLayer({
-                id: 'Rank' + (index + 1),
-                type: 'fill',
-                source: 'Rank' + (index + 1),
-                layout: {},
-                paint: {
-                    'fill-color': rankColors[index], 
-                    'fill-opacity': 0.7,
-                    'fill-outline-color': 'rgba(0,0,0,0)'
-                }
-            });
+    // Merge all rank GeoJSON data
+    const rankFiles = ['data/Rank 1.geojson', 'data/Rank 2.geojson', 'data/Rank 3.geojson', 'data/Rank 4.geojson', 'data/Rank 5.geojson', 'data/Rank 6.geojson', 'data/Rank 7.geojson', 'data/Rank 8.geojson', 'data/Rank 9.geojson'];
+
+    Promise.all(rankFiles.map(filePath =>
+        fetch(filePath)
+            .then(response => response.json())
+            .then(data => {
+                mergedRankData.features = mergedRankData.features.concat(data.features);
+            })
+    )).then(() => {
+        // Add the source for the merged data
+        map.addSource('WeightedOverlay', {
+            type: 'geojson',
+            data: mergedRankData
         });
-});
 
+        // Add the layer for the merged data
+        map.addLayer({
+            'id': 'WeightedOverlay',
+            'type': 'fill',
+            'source': 'WeightedOverlay',
+            'layout': {},
+            'paint': {
+                'fill-color': [
+                    'match',
+                    ['get', 'rank'],
+                    1, '#FCB900',
+                    2, '#FFAD0A',
+                    3, '#FA9200',
+                    4, '#E66C5D',
+                    5, '#CC4779',
+                    6, '#AA2396',
+                    7, '#970EB2',
+                    8, '#970EB2'
+		],
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
 map.off('style.load');
 map.on('styledata', () => {
