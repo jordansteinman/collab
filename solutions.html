@@ -123,14 +123,14 @@ body { margin: 0; padding: 0; }
   });
 
 // WTW.geojson
-//map.off('style.load');
+map.off('style.load');
 map.on('load', () => {
-        //const layers = map.getStyle().layers;
-       // let firstSymbolId;
-       // for (const layer of layers) {
-           // if (layer.type === 'symbol') {
-              //  firstSymbolId = layer.id;
-               // break;
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+       for (const layer of layers) {
+           if (layer.type === 'symbol') {
+               firstSymbolId = layer.id;
+                break;
           
         map.addSource('WTW', {
             type: 'geojson',
