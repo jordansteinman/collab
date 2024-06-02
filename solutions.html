@@ -601,12 +601,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
  // After the last frame rendered before the map enters an "idle" state.
     map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('Rank 1,Rank 2,Rank 3,Rank 4,Rank 5,Rank 6,Rank 7,Rank 8,Rank 9') || !map.getLayer('WTW')) {
+        if (!map.getLayer('Overlay') || !map.getLayer('WTW')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Rank 1,Rank 2,Rank 3,Rank 4,Rank 5,Rank 6,Rank 7,Rank 8,Rank 9', 'WTW'];
+        const toggleableLayerIds = ['Overlay', 'WTW'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {
