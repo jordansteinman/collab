@@ -533,15 +533,15 @@ map.on('styledata', () => {
                 break;
             }
         }
-        map.addSource('WTW', {
+        map.addSource('Where to Work Optimization', {
             type: 'geojson',
-            data: 'data/WTW.geojson'
+            data: 'data/Where to Work Optimization.geojson'
         });
         map.addLayer(
             {
-		'id': 'WTW',
+		'id': 'Where to Work Optimization',
 		'type': 'fill',
-		'source': 'WTW',
+		'source': 'Where to Work Optimization',
 		'layout': {}, 
 		'paint': {
 			'fill-color': '#7704CF',
@@ -653,12 +653,12 @@ map.on('styledata', () => {
 //ON OFF
  map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('WTW')) {
+        if (!map.getLayer('Where to Work Optimization')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['WTW'];
+        const toggleableLayerIds = ['Where to Work Optimization'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {
