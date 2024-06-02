@@ -36,7 +36,7 @@
 <h3 class="CenterThis">Mapbox Visualization</h3>
 
 <div id='map'></div>
-	
+<div id='offon'></div>	
 <!--<div id="menu">
 <div><p id='menutitle'>Basemap Options</h1></div>
 <div class="options">
@@ -77,15 +77,15 @@
     }
 
     #offon a {
-        font-size: 13px;
-        color: #404040;
-        display: block;
-        margin: 0;
-        padding: 0;
-        padding: 10px;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        text-align: center;
+       background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        font-family: 'Open Sans', sans-serif;  
     }
 
     #offon a:last-child {
@@ -107,7 +107,7 @@
     }
 </style>
 
-<nav id="offon"></nav>
+<!--<nav id="offon"></nav>-->
 
 
 <script>
@@ -117,7 +117,7 @@
     container: 'map',
 	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
         center: [-78.6977778, 44.3746760],
-        zoom: 9,
+        zoom: 8,
   });
 
 
@@ -553,7 +553,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
     container: 'map',
 	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
         center: [-78.6977778, 44.3746760],
-        zoom: 9,
+        zoom: 8,
   });
 
 // Red/Green colour scheme: A50026
