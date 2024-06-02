@@ -643,6 +643,12 @@ map.on('styledata', () => {
                 .setHTML('<h5>Rank 9<h5>')
                 .addTo(map);
         });
+     map.on('click', 'Where to Work Optimization', (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML('<h5>Most Optimal Habitat<h5>')
+                .addTo(map);
+        });
 
 
 
