@@ -146,6 +146,15 @@
     map.addControl(new LegendControl(), 'bottom-right');
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
 
+  const scale = new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'metric'
+  });
+  map.addControl(scale, 'top-left');
+
+  // Add navigation control
+  map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+});
 
     //// Add source and layer whenever base style is loaded
   // map.off('style.load');
@@ -708,16 +717,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
             layers.appendChild(link);
         }
     });
- // Add scale bar control
-  const scale = new mapboxgl.ScaleControl({
-    maxWidth: 80,
-    unit: 'metric'
-  });
-  map.addControl(scale, 'top-left');
 
-  // Add navigation control
-  map.addControl(new mapboxgl.NavigationControl(), 'top-left');
-});
 	
 </script>
 
