@@ -222,16 +222,16 @@ map.on('styledata', () => {
             
       
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
-map.off('style.load');
-map.on('styledata', () => {
-        const layers = map.getStyle().layers;
-        let firstSymbolId;
-        for (const layer of layers) {
-            if (layer.type === 'symbol') {
-                firstSymbolId = layer.id;
-                break;
-            }
-        }
+//map.off('style.load');
+//map.on('styledata', () => {
+    //    const layers = map.getStyle().layers;
+    //    let firstSymbolId;
+   //     for (const layer of layers) {
+     //       if (layer.type === 'symbol') {
+       //         firstSymbolId = layer.id;
+        //        break;
+        //    }
+      //  }
         map.addSource('Waterbodies', {
             type: 'geojson',
             data: 'data/Waterbodies.geojson'
@@ -253,16 +253,16 @@ map.on('styledata', () => {
 });
 
 // Where to work 
-map.off('style.load');
-map.on('styledata', () => {
-        const layers = map.getStyle().layers;
-        let firstSymbolId;
-        for (const layer of layers) {
-            if (layer.type === 'symbol') {
-                firstSymbolId = layer.id;
-                break;
-            }
-        }
+//map.off('style.load');
+//map.on('styledata', () => {
+     //   const layers = map.getStyle().layers;
+     //   let firstSymbolId;
+     //   for (const layer of layers) {
+       //     if (layer.type === 'symbol') {
+      //          firstSymbolId = layer.id;
+       //         break;
+       //     }
+     //   }
         map.addSource('WTW', {
             type: 'geojson',
             data: 'data/WTW.geojson'
