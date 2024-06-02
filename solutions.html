@@ -22,6 +22,10 @@
 <!-- https://www.mapbox.com/install/javascript -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
 </head>
 <body>
 <div class="topnav" id="myTopnav">
@@ -141,10 +145,8 @@ map.on('load', () => {
 			  }, 
 		'paint': {
 			'fill-color': '#8A2BE2',
-		}
-			
-		
-            }),
+		},
+		'source-layer': 'WTW'
           
 });
 
@@ -172,12 +174,12 @@ map.on('load', () => {
  // After the last frame rendered before the map enters an "idle" state.
     map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('Overlay') || !map.getLayer('WTW')) {
+        if (!map.getLayer('WTW')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Overlay', 'WTW'];
+        const toggleableLayerIds = ['WTW'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {
