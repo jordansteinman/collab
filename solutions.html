@@ -176,47 +176,72 @@ map.on('styledata', () => {
                 break;
             }
         }
- // Initialize merged GeoJSON data
-    const mergedRankData = {
-        type: 'FeatureCollection',
-        features: []
-    };
+// Assuming you have an array of file paths for each rank's GeoJSON data
+const rankFilePaths = [
+         'data/Rank 1.geojson',
+          'data/Rank 2.geojson',
+         'data/Rank 3.geojson',
+	 'data/Rank 4.geojson',
+	 'data/Rank 5.geojson',
+	 'data/Rank 6.geojson',
+	 'data/Rank 7.geojson',
+	 'data/Rank 8.geojson',
+	 'data/Rank 9.geojson'
+	
+];
 
-    // Merge all rank GeoJSON data
-    const rankFiles = ['data/Rank 1.geojson', 'data/Rank 2.geojson', 'data/Rank 3.geojson', 'data/Rank 4.geojson', 'data/Rank 5.geojson', 'data/Rank 6.geojson', 'data/Rank 7.geojson', 'data/Rank 8.geojson', 'data/Rank 9.geojson'];
+// Initialize an empty array to hold the loaded GeoJSON features
+let allFeatures = [];
 
-    Promise.all(rankFiles.map(filePath =>
-        fetch(filePath)
-            .then(response => response.json())
-            .then(data => {
-                mergedRankData.features = mergedRankData.features.concat(data.features);
-            })
-    )).then(() => {
-        // Add the source for the merged data
-        map.addSource('WeightedOverlay', {
+// Load each rank's GeoJSON data and merge it into 'allFeatures'
+Promise.all(rankFilePaths.map(filePath => fetch(filePath)))
+    .then(responses => Promise.all(responses.map(response => response.json())))
+    .then(dataArray => {
+        dataArray.forEach(data => {
+            // Extract features from each rank's GeoJSON data
+            const features = data.features;
+            // Merge features into the 'allFeatures' array
+            allFeatures = allFeatures.concat(features);
+        });
+
+        // Once all data is merged, create the GeoJSON object
+        const mergedRankData = {
+            type: 'FeatureCollection',
+            features: allFeatures
+        };
+
+        // Now you can use 'mergedRankData' as the data source for the 'HabitatSuitability' layer
+        map.addSource('HabitatSuitability', {
             type: 'geojson',
             data: mergedRankData
         });
 
-        // Add the layer for the merged data
+        // Add your layer definition for 'HabitatSuitability' here
         map.addLayer({
-            'id': 'WeightedOverlay',
+            'id': 'HabitatSuitability',
             'type': 'fill',
-            'source': 'WeightedOverlay',
+            'source': 'HabitatSuitability',
             'layout': {},
             'paint': {
-                'fill-color': [
-                    'match',
-                    ['get', 'rank'],
-                    1, '#FCB900',
-                    2, '#FFAD0A',
-                    3, '#FA9200',
-                    4, '#E66C5D',
-                    5, '#CC4779',
-                    6, '#AA2396',
-                    7, '#970EB2',
-                    8, '#970EB2'
-		],
+                 'fill-color': [
+            'match',
+            ['get', 'rank'], // Assuming each feature has a 'rank' property indicating its rank
+            'Rank 1', '#FCB900',
+            'Rank 2', '#FFAD0A',
+            'Rank 3', '#FA9200',
+            'Rank 4', '#E66C5D',
+            'Rank 5', '#CC4779',
+            'Rank 6', '#AA2396',
+            'Rank 7', '#970EB2',
+            'Rank 8', '#8B08CC',
+            'Rank 9', '#7704CF'  
+        ],
+        'fill-opacity': 0.7,
+        'fill-outline-color': 'rgba(0,0,0,0)'
+    }
+});
+            
+      
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
 map.off('style.load');
 map.on('styledata', () => {
