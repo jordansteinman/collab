@@ -176,69 +176,48 @@ map.on('styledata', () => {
                 break;
             }
         }
-// Assuming you have an array of file paths for each rank's GeoJSON data
-const rankFilePaths = [
-         'data/Rank 1.geojson',
-          'data/Rank 2.geojson',
-         'data/Rank 3.geojson',
-	 'data/Rank 4.geojson',
-	 'data/Rank 5.geojson',
-	 'data/Rank 6.geojson',
-	 'data/Rank 7.geojson',
-	 'data/Rank 8.geojson',
-	 'data/Rank 9.geojson'
-	
-];
+  // Define an array to store all the rank sources
+    const ranks = [
+        { name: 'Rank 1', color: '#FCB900' },
+        { name: 'Rank 2', color: '#FFAD0A' },
+        { name: 'Rank 3', color: '#FA9200' },
+        { name: 'Rank 4', color: '#E66C5D' },
+        { name: 'Rank 5', color: '#CC4779' },
+        { name: 'Rank 6', color: '#AA2396' },
+        { name: 'Rank 7', color: '#970EB2' },
+        { name: 'Rank 8', color: '#8B08CC' },
+        { name: 'Rank 9', color: '#7704CF' }
+    ];
 
-// Initialize an empty array to hold the loaded GeoJSON features
-let allFeatures = [];
-
-// Load each rank's GeoJSON data and merge it into 'allFeatures'
-Promise.all(rankFilePaths.map(filePath => fetch(filePath)))
-    .then(responses => Promise.all(responses.map(response => response.json())))
-    .then(dataArray => {
-        dataArray.forEach(data => {
-            // Extract features from each rank's GeoJSON data
-            const features = data.features;
-            // Merge features into the 'allFeatures' array
-            allFeatures = allFeatures.concat(features);
-        });
-
-        // Once all data is merged, create the GeoJSON object
-        const mergedRankData = {
-            type: 'FeatureCollection',
-            features: allFeatures
-        };
-
-        // Now you can use 'mergedRankData' as the data source for the 'HabitatSuitability' layer
-        map.addSource('HabitatSuitability', {
+    // Loop through each rank, add source and layer
+    ranks.forEach(rank => {
+        map.addSource(rank.name, {
             type: 'geojson',
-            data: mergedRankData
+            data: `data/${rank.name}.geojson`
         });
 
-        // Add your layer definition for 'HabitatSuitability' here
         map.addLayer({
-            'id': 'HabitatSuitability',
+            'id': rank.name,
             'type': 'fill',
-            'source': 'HabitatSuitability',
+            'source': rank.name,
             'layout': {},
             'paint': {
-                 'fill-color': [
-            'match',
-            ['get', 'rank'], // Assuming each feature has a 'rank' property indicating its rank
-            'Rank 1', '#FCB900',
-            'Rank 2', '#FFAD0A',
-            'Rank 3', '#FA9200',
-            'Rank 4', '#E66C5D',
-            'Rank 5', '#CC4779',
-            'Rank 6', '#AA2396',
-            'Rank 7', '#970EB2',
-            'Rank 8', '#8B08CC',
-            'Rank 9', '#7704CF'  
-        ],
-        'fill-opacity': 0.7,
-        'fill-outline-color': 'rgba(0,0,0,0)'
-    }
+                'fill-color': rank.color,
+                'fill-opacity': 0.7,
+                'fill-outline-color': 'rgba(0,0,0,0)'
+            }
+        }, firstSymbolId);
+    });
+
+    // Set click event listeners for each rank
+    ranks.forEach(rank => {
+        map.on('click', rank.name, (e) => {
+            new mapboxgl.Popup({ className: "popups" })
+                .setLngLat(e.lngLat)
+                .setHTML(`<h5>${rank.name}</h5>`)
+                .addTo(map);
+        });
+    });
 });
             
       
@@ -308,96 +287,7 @@ map.on('styledata', () => {
 
 
 
-// Red/Green colour scheme: A50026
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 1', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 1<h5>')
-                .addTo(map);
-        });
-// Red/Green colour scheme: DE3F2E
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 2', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 2<h5>')
-                .addTo(map);
-        });
-// Red/Green colour scheme: F88E52
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 3', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 3<h5>')
-                .addTo(map);
-        });
-// Red/Green colour scheme: FED480
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-    map.on('click', 'Rank 4', (e) => {
-        new mapboxgl.Popup({ className: "popups" })
-            .setLngLat(e.lngLat)
-            .setHTML('<h5>Rank 4<h5>')
-            .addTo(map);
-    });
-// Red/Green colour scheme: FFFFBF
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 5', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 5<h5>')
-                .addTo(map);
-        });
-// Red/Green colour scheme: CCEA83
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 6', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 6<h5>')
-                .addTo(map);
-        });
-// Red/Green colour scheme: 86CB66
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 7', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 7<h5>')
-                .addTo(map);
-        });
-// Red/Green colour scheme: 2DA155
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 8', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 8<h5>')
-                .addTo(map);
-        });
-// Red/Green colour scheme: 006837
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 9', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 9<h5>')
-                .addTo(map);
-        });
+
 
 
 
