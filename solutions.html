@@ -515,6 +515,36 @@ map.on('styledata', () => {
         );
 });
 
+// Waterbodies.geojson, layer from OHN 100K Waterbodies
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('WTW', {
+            type: 'geojson',
+            data: 'data/WTW.geojson'
+        });
+        map.addLayer(
+            {
+		'id': 'WTW',
+		'type': 'fill',
+		'source': 'WTW',
+		'layout': {}, 
+		'paint': {
+			'fill-color': '#FF7F50',
+		}
+			
+		
+            },
+            firstSymbolId
+        );
+});
 
 
 
@@ -629,25 +659,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
         zoom: 8,
   });
 
-// Red/Green colour scheme: A50026
-// Popup code learned with:
-// https://docs.mapbox.com/mapbox-gl-js/example/popup/
-// https://docs.mapbox.com/mapbox-gl-js/example/polygon-popup-on-click/
-        map.on('click', 'Rank 1', (e) => {
-            new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank 1<h5>')
-                .addTo(map);
-        });
+
 //ON OFF
  map.on('idle', () => {
         // If these two layers were not added to the map, abort
-        if (!map.getLayer('Waterbodies')) {
+        if (!map.getLayer('WTW')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Waterbodies'];
+        const toggleableLayerIds = ['WTW'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {
