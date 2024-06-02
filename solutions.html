@@ -117,7 +117,7 @@
     container: 'map',
 	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
         center: [-78.6977778, 44.3746760],
-        zoom: 6,
+        zoom: 7,
   });
 
 
@@ -553,7 +553,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
     container: 'map',
 	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
         center: [-78.6977778, 44.3746760],
-        zoom: 6,
+        zoom: 7,
   });
 
 // Red/Green colour scheme: A50026
@@ -650,7 +650,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
 
 
 //ON OFF
- map.off('idle', () => {
+ map.on('idle', () => {
         // If these two layers were not added to the map, abort
         if (!map.getLayer('WTW')) {
             return;
