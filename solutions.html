@@ -64,7 +64,7 @@
 	</div>
   </div>
 <style>
-    #menu {
+    #offon {
         background: #fff;
         position: absolute;
         z-index: 1;
@@ -76,7 +76,7 @@
         font-family: 'Open Sans', sans-serif;
     }
 
-    #menu a {
+    #offon a {
         font-size: 13px;
         color: #404040;
         display: block;
@@ -88,26 +88,26 @@
         text-align: center;
     }
 
-    #menu a:last-child {
+    #offon a:last-child {
         border: none;
     }
 
-    #menu a:hover {
+    #offon a:hover {
         background-color: #f8f8f8;
         color: #404040;
     }
 
-    #menu a.active {
-        background-color: #3887be;
+    #offon a.active {
+        background-color: #e8f0ff;
         color: #ffffff;
     }
 
-    #menu a.active:hover {
+    #offon a.active:hover {
         background: #3074a4;
     }
 </style>
 
-<nav id="menu"></nav>
+<nav id="offon"></nav>
 
 
 <script>
@@ -117,7 +117,7 @@
     container: 'map',
 	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
         center: [-78.6977778, 44.3746760],
-        zoom: 7,
+        zoom: 9,
   });
 
 
@@ -515,7 +515,7 @@ map.on('styledata', () => {
         );
 });
 
-// Waterbodies.geojson, layer from OHN 100K Waterbodies
+// Where to work 
 map.off('style.load');
 map.on('styledata', () => {
         const layers = map.getStyle().layers;
@@ -537,7 +537,7 @@ map.on('styledata', () => {
 		'source': 'WTW',
 		'layout': {}, 
 		'paint': {
-			'fill-color': '#FF7F50',
+			'fill-color': '#7704CF',
 		}
 			
 		
@@ -553,7 +553,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
     container: 'map',
 	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
         center: [-78.6977778, 44.3746760],
-        zoom: 7,
+        zoom: 9,
   });
 
 // Red/Green colour scheme: A50026
@@ -698,7 +698,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cmFyYmMiLCJhIjoiY2x3YXhrejYzMGswcTJxcHFwM
                 }
             };
 
-            const layers = document.getElementById('menu');
+            const layers = document.getElementById('offon');
             layers.appendChild(link);
         }
     });
