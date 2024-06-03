@@ -523,7 +523,7 @@ map.on('styledata', () => {
 });
 
 // Where to work 
-map.on('styledata', () => {
+function addWhereToWorkLayer()  {
         const layers = map.getStyle().layers;
         let firstSymbolId;
         for (const layer of layers) {
@@ -659,9 +659,6 @@ map.on('styledata', () => {
 //ON OFF
  map.on('idle', () => {
         
-        if (!map.getLayer('Where to Work Optimization')) {
-            return;
-        }
 
         // Enumerate ids of the layers.
         const toggleableLayerIds = ['Where to Work Optimization'];
@@ -702,12 +699,13 @@ map.on('styledata', () => {
                         'visibility',
                         'visible'
                     );
+		addWhereToWorkLayer();
                 }
             };
 
             const layers = document.getElementById('offon');
             layers.appendChild(link);
-	  map.setLayoutProperty(id, 'visibility', 'none');
+	  
         }
     });
 
