@@ -170,41 +170,7 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                 });
             });
         });
-  // Merge the rank layers into a single merged layer
-    const mergedRankData = {
-        type: 'FeatureCollection',
-        features: []
-    };
 
-    // Fetch each rank layer data and combine it
-    let fetchCount = 0;
-    
-    rankLayers.forEach(rank => {
-        fetch(rank.geojson)
-            .then(response => response.json())
-            .then(data => {
-                mergedRankData.features.push(...data.features);
-                fetchCount++;
-                
-                // After fetching all sources, add the merged layer
-                if (fetchCount === rankLayers.length) {
-                    map.addSource('rankMergedLayer', {
-                        type: 'geojson',
-                        data: mergedRankData
-                    });
-
-                    map.addLayer({
-                        'id': 'rankMergedLayer',
-                        'type': 'fill',
-                        'source': 'rankMergedLayer',
-                        'paint': {
-                            'fill-color': '#FF00FF',
-                            'fill-opacity': 0.7
-                        }
-                    }, firstSymbolId);
-                }
-            });
-    });
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
 map.off('style.load');
 map.on('styledata', () => {
@@ -286,12 +252,12 @@ map.on('styledata', () => {
 	//ON OFF
 map.on('idle', () => {
         
-        if (!map.getLayer('Where to Work Optimization') || !map.getLayer('rankMergedLayer')) {
+        if (!map.getLayer('Where to Work Optimization')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Where to Work Optimization', 'rankMergedLayer'];
+        const toggleableLayerIds = ['Where to Work Optimization'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {
