@@ -546,8 +546,8 @@ map.on('styledata', () => {
 		'paint': {
 			'fill-color': '#7704CF'
 		},
-		  'visibility': 'none' // Set initial visibility to 'none'   
-	    }, map.setLayoutProperty(id, 'visibility', 'none')
+		        'visibility': 'none' // Set initial visibility to 'none'   
+	    
 		
             },
             firstSymbolId
@@ -658,7 +658,7 @@ map.on('styledata', () => {
 
 
 	//ON OFF
- map.on('idle', () => {
+map.on('idle', () => {
         
         if (!map.getLayer('Where to Work Optimization')) {
             return;
@@ -708,6 +708,7 @@ map.on('styledata', () => {
 
             const layers = document.getElementById('offon');
             layers.appendChild(link);
+	
 	map.setLayoutProperty(id, 'visibility', 'none');
         }
     });
