@@ -468,7 +468,7 @@ text-align: center;
     margin-left: 10%;
     margin-right: 10%;
     justify-content: space-between;
-    background-color: #35699D;
+    background-color: #e8f0ff;
     color: white;
     cursor: pointer;
     padding:1.5em;
@@ -707,8 +707,9 @@ https://dwellsy.com/rentmaps */
     }
 
     #offon a {
-       font-size: 13px;
-        color: #404040;
+       font-size: 14px;
+	font-family: Trebuchet MS;
+        color: #000000;
         display: block;
         margin: 0;
         padding: 0;
