@@ -523,16 +523,7 @@ map.on('styledata', () => {
 });
 
 // Where to work 
-map.off('style.load');
-map.on('styledata', () => {
-    const layers = map.getStyle().layers;
-        let firstSymbolId;
-        for (const layer of layers) {
-           if (layer.type === 'symbol') {
-               firstSymbolId = layer.id;
-                break;
-            }
-        }
+
         map.addSource('Where to Work Optimization', {
             type: 'geojson',
             data: 'data/Where to Work Optimization.geojson'
