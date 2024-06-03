@@ -659,57 +659,22 @@ map.on('styledata', () => {
 
 //ON OFF
  map.on('idle', () => {
-        // If these two layers were not added to the map, abort
-        if (!map.getLayer('Where to Work Optimization')) {
-            return;
-        }
+ const wtwLayer = 'WTW';
+    const toggleButton = document.getElementById(wtwLayer);
 
-        // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Where to Work Optimization'];
+    toggleButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-        // Set up the corresponding toggle button for each layer.
-        for (const id of toggleableLayerIds) {
-            // Skip layers that already have a button set up.
-            if (document.getElementById(id)) {
-                continue;
-            }
+        const visibility = map.getLayoutProperty(wtwLayer, 'visibility');
+        const newVisibility = (visibility === 'visible') ? 'none' : 'visible';
+        map.setLayoutProperty(wtwLayer, 'visibility', newVisibility);
 
-            // Create a link.
-            const link = document.createElement('a');
-            link.id = id;
-            link.href = '#';
-            link.textContent = id;
-            link.className = 'active';
-
-            // Show or hide layer when the toggle is clicked.
-            link.onclick = function (e) {
-                const clickedLayer = this.textContent;
-                e.preventDefault();
-                e.stopPropagation();
-
-                const visibility = map.getLayoutProperty(
-                    clickedLayer,
-                    'visibility'
-                );
-
-                // Toggle layer visibility by changing the layout object's visibility property.
-                if (visibility === 'visible') {
-                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-                    this.className = '';
-                } else {
-                    this.className = 'active';
-                    map.setLayoutProperty(
-                        clickedLayer,
-                        'visibility',
-                        'visible'
-                    );
-                }
-            };
-
-            const layers = document.getElementById('offon');
-            layers.appendChild(link);
-        }
+        // Update button class based on visibility
+        toggleButton.className = (newVisibility === 'visible') ? 'active' : '';
     });
+});       
+  
 
 	
 </script>
