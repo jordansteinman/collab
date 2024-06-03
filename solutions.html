@@ -251,12 +251,12 @@ map.on('styledata', () => {
 	//ON OFF
 map.on('idle', () => {
         
-        if (!map.getLayer('Where to Work Optimization')) {
+        if (!map.getLayer('Where to Work Optimization') || !map.getLayer('rank.id')) {
             return;
         }
 
         // Enumerate ids of the layers.
-        const toggleableLayerIds = ['Where to Work Optimization'];
+        const toggleableLayerIds = ['Where to Work Optimization', 'rank.id'];
 
         // Set up the corresponding toggle button for each layer.
         for (const id of toggleableLayerIds) {
