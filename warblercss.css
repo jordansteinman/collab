@@ -79,7 +79,7 @@ h5 {
   margin-right: 10%;
 	box-sizing: inherit;
 	padding: 0px;
-	padding-top: 32px!important;
+	padding-top: 32px;
 	padding-bottom: 32px!important;
 }
 
@@ -741,5 +741,5 @@ https://dwellsy.com/rentmaps */
 	margin-bottom: 0px;
     }
     #about {
-	padding-top: 0px;
+    padding-top: 0px;
     }
