@@ -737,3 +737,6 @@ https://dwellsy.com/rentmaps */
     #offon a.active:hover {
         background: #3074a4;
     }
+    #mapboxheading {
+	margin-bottom: 0px;
+    }
