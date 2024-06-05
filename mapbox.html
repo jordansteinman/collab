@@ -161,10 +161,11 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                     },
                     firstSymbolId
                 );
- 	map.on('click', rank.id, (e) => {
+ 	        map.on('click', rank.id, (e) => {
                     new mapboxgl.Popup({ className: "popups" })
                         .setLngLat(e.lngLat)
                         .setHTML('<h5>Rank ' + rank.id.replace('rank', '') + '</h5>')
+		        .addTo(map);
 		
                 });
             });
