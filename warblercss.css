@@ -726,10 +726,10 @@ https://dwellsy.com/rentmaps */
     border: none;
 }
 
-#offon a:hover {
+/*#offon a:hover {
     background-color: #f8f8f8;
     color: #404040;
-}
+}*/
 
 #offon a.offon-active {
     background-color: #7704CF;
