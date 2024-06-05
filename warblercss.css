@@ -736,8 +736,8 @@ https://dwellsy.com/rentmaps */
     color: #000000;
 }
 
-offon a.offon-active:hover {
-    //background-color: #7704CF;
+#offon a.offon-active:hover {
+    background-color: #7704CF;
     color: #ffffff;
 }
     #mapboxheading {
