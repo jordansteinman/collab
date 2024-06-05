@@ -287,9 +287,9 @@ map.on('idle', () => {
                 // Toggle layer visibility by changing the layout object's visibility property.
                 if (visibility === 'visible') {
                     map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-                    this.className = '';
+                     this.classList.remove('offon-active');
                 } else {
-                    this.className = 'offon-active';
+                    this.classList.add('offon-active');
                     map.setLayoutProperty(
                         clickedLayer,
                         'visibility',
