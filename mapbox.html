@@ -173,6 +173,37 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
 		    
     });
 
+// Waterbodies.geojson, layer from OHN 100K Waterbodies
+map.off('style.load');
+map.on('styledata', () => {
+        const layers = map.getStyle().layers;
+        let firstSymbolId;
+        for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Waterbodies', {
+            type: 'geojson',
+            data: 'data/Waterbodies.geojson'
+        });
+        map.addLayer(
+            {
+		'id': 'Waterbodies',
+		'type': 'fill',
+		'source': 'Waterbodies',
+		'layout': {}, 
+		'paint': {
+			'fill-color': '#87CEEB',
+		}
+			
+		
+            },
+            firstSymbolId
+        );
+});
+
 
 
 
