@@ -708,7 +708,7 @@ https://dwellsy.com/rentmaps */
         font-family: 'Open Sans', sans-serif;
     }
 
-    #offon a {
+    #offon a2 {
        font-size: 14px;
 	font-family: Trebuchet MS;
         color: #000000;
@@ -722,21 +722,21 @@ https://dwellsy.com/rentmaps */
     }
 
 
-    #offon a:last-child {
+    #offon a2:last-child {
         border: none;
     }
 
-    #offon a:hover {
+    #offon a2:hover {
         background-color: #f8f8f8;
         color: #404040;
     }
 
-    #offon a.active2 {
+    #offon a2.active {
         background-color: #7704CF;
         color: #000000;
     }
 
-    #offon a.active2:hover {
+    #offon a2.active:hover {
         background: #3074a4;
     }
     #mapboxheading {
