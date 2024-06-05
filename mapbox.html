@@ -74,7 +74,7 @@
     container: 'map',
 	style: 'mapbox://styles/laurarbc/clwu3lhzn05ar01ql1plwayeg',
         center: [-78.6977778, 44.3746760],
-        zoom: 8.2,
+        zoom: 8.1,
   });
 
 
@@ -204,7 +204,47 @@ map.on('styledata', () => {
         );
 });
 
+// Where to work 
+map.off('style.load');
+map.on('styledata', () => {
+       const layers = map.getStyle().layers;
+        let firstSymbolId;
+      for (const layer of layers) {
+            if (layer.type === 'symbol') {
+                firstSymbolId = layer.id;
+                break;
+            }
+        }
+        map.addSource('Where to Work Optimization', {
+            type: 'geojson',
+            data: 'data/Where to Work Optimization.geojson'
+        });
+        map.addLayer(
+            {
+		'id': 'Where to Work Optimization',
+		'type': 'fill',
+		'source': 'Where to Work Optimization',
+		'layout': {
+			'visibility': 'none' 
+		}, 
+		'paint': {
+			'fill-color': '#7704CF'
+		}
+		        
+		
+            },
+            firstSymbolId
+        );
 
+     map.on('click', rank.id, (e) => {
+                    new mapboxgl.Popup({ className: "popups" })
+                        .setLngLat(e.lngLat)
+                       .setHTML('<p>Where to Work Optimized Habitat</p>')
+		        .addTo(map);
+		
+                });
+            });
+	});
 
 
 //source:https://docs.mapbox.com/mapbox-gl-js/example/toggle-layers/
