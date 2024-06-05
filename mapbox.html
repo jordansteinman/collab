@@ -118,7 +118,7 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
 // Putting labels on top of data learned with: https://docs.mapbox.com/mapbox-gl-js/example/geojson-layer-in-stack/
 // Making data layers stay when changing basemap learned from: https://docs.mapbox.com/mapbox-gl-js/example/style-switch/
 //map.off('style.load');
- map.on('load', () => {
+ map.on('styledata', () => {
             const layers = map.getStyle().layers;
             let firstSymbolId;
             for (const layer of layers) {
@@ -162,14 +162,10 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                     firstSymbolId
                 );
  	map.on('click', rank.id, (e) => {
-            openPopups.forEach(popup => popup.remove());
-            openPopups = [];
-
-            // Create a new popup
-            const newPopup = new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank ' + rank.id.replace('rank', '') + '</h5>')
-                .addTo(map);
+                    new mapboxgl.Popup({ className: "popups" })
+                        .setLngLat(e.lngLat)
+                        .setHTML('<h5>Rank ' + rank.id.replace('rank', '') + '</h5>')
+                        .addTo(map);
 		
                 });
             });
