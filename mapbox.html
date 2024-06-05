@@ -153,6 +153,7 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                         'id': rank.id,
                         'type': 'fill',
                         'source': rank.id,
+			'layout':{},
                         'paint': {
                             'fill-color': rank.color,
                             'fill-opacity': 0.7,
@@ -168,9 +169,9 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                         .addTo(map);
 
         });
- });
+      });
 		    
-
+    });
 
 
 
