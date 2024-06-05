@@ -161,16 +161,71 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                     },
                     firstSymbolId
                 );
- 	        map.on('click', rank.id, (e) => {
-                    new mapboxgl.Popup({ className: "popups" })
-                        .setLngLat(e.lngLat)
-                        .setHTML('<h5>Rank ' + rank.id.replace('rank', '') + '</h5>')
-		        .addTo(map);
-		
-                });
-            });
+  map.on('click', rank.id, (e) => {
+            handlePopup(e, 'Rank ' + rank.id.replace('rank', ''));
         });
+    });
 
+    // Example for another layer with a different popup
+    map.on('click', 'Where to Work Optimization', (e) => {
+        handlePopup(e, 'Where to Work Optimization');
+    });
+});
+
+function handlePopup(e, content) {
+    // Close all existing popups
+    openPopups.forEach(popup => popup.remove());
+    openPopups = [];
+
+    // Create a new popup
+    const newPopup = new mapboxgl.Popup({ className: "popups" })
+        .setLngLat(e.lngLat)
+        .setHTML('<h5>Where to Work Optimization</h5>')
+        .addTo(map);
+
+    // Adjust popup position to avoid overlap
+    adjustPopupPosition(newPopup, e.lngLat);
+
+    // Add the new popup to the openPopups array
+    openPopups.push(newPopup);
+}
+
+function adjustPopupPosition(popup, lngLat) {
+    const popupElement = popup.getElement();
+    const mapContainer = document.getElementById('map');
+    const mapWidth = mapContainer.offsetWidth;
+    const mapHeight = mapContainer.offsetHeight;
+
+    // Get the pixel coordinates of the popup's location
+    const popupCoordinates = map.project(lngLat);
+
+    // Get the dimensions of the popup
+    const popupWidth = popupElement.offsetWidth;
+    const popupHeight = popupElement.offsetHeight;
+
+    // Calculate offsets to adjust the popup position
+    let offsetX = 0;
+    let offsetY = 0;
+
+    // Adjust horizontal position
+    if (popupCoordinates.x + popupWidth / 2 > mapWidth) {
+        offsetX = mapWidth - (popupCoordinates.x + popupWidth / 2) - 10; // 10px padding
+    } else if (popupCoordinates.x - popupWidth / 2 < 0) {
+        offsetX = -(popupCoordinates.x - popupWidth / 2) + 10; // 10px padding
+    }
+
+    // Adjust vertical position
+    if (popupCoordinates.y + popupHeight > mapHeight) {
+        offsetY = mapHeight - (popupCoordinates.y + popupHeight) - 10; // 10px padding
+    } else if (popupCoordinates.y < popupHeight) {
+        offsetY = popupHeight - popupCoordinates.y + 10; // 10px padding
+    }
+
+    popup.setOffset([offsetX, offsetY]);
+}
+
+
+		    
 // Waterbodies.geojson, layer from OHN 100K Waterbodies
 map.off('style.load');
 map.on('styledata', () => {
@@ -234,59 +289,16 @@ map.on('styledata', () => {
             firstSymbolId
         );
 
-      map.on('click', rank.id, (e) => {
-            // Close all existing popups
-            openPopups.forEach(popup => popup.remove());
-            openPopups = [];
-
-            // Create a new popup
-            const newPopup = new mapboxgl.Popup({ className: "popups" })
-                .setLngLat(e.lngLat)
-                .setHTML('<h5>Rank ' + rank.id.replace('rank', '') + '</h5>')
-                .addTo(map);
-
-            // Adjust popup position to avoid overlap
-            adjustPopupPosition(newPopup, e.lngLat);
-
-            // Add the new popup to the openPopups array
-            openPopups.push(newPopup);
+     // map.on('click', rank.id, (e) => {
+                   // new mapboxgl.Popup({ className: "popups" })
+                       // .setLngLat(e.lngLat)
+                      //  .setHTML('<p>Where to Work Optimized Habitat</p>')
+		      //  .addTo(map);
+		
+                });
+            });
         });
- });
-});
 
-function adjustPopupPosition(popup, lngLat) {
-    const popupElement = popup.getElement();
-    const mapContainer = document.getElementById('map');
-    const mapWidth = mapContainer.offsetWidth;
-    const mapHeight = mapContainer.offsetHeight;
-
-    // Get the pixel coordinates of the popup's location
-    const popupCoordinates = map.project(lngLat);
-
-    // Get the dimensions of the popup
-    const popupWidth = popupElement.offsetWidth;
-    const popupHeight = popupElement.offsetHeight;
-
-    // Calculate offsets to adjust the popup position
-    let offsetX = 0;
-    let offsetY = 0;
-
-    // Adjust horizontal position
-    if (popupCoordinates.x + popupWidth / 2 > mapWidth) {
-        offsetX = mapWidth - (popupCoordinates.x + popupWidth / 2) - 10; // 10px padding
-    } else if (popupCoordinates.x - popupWidth / 2 < 0) {
-        offsetX = -(popupCoordinates.x - popupWidth / 2) + 10; // 10px padding
-    }
-
-    // Adjust vertical position
-    if (popupCoordinates.y + popupHeight > mapHeight) {
-        offsetY = mapHeight - (popupCoordinates.y + popupHeight) - 10; // 10px padding
-    } else if (popupCoordinates.y < popupHeight) {
-        offsetY = popupHeight - popupCoordinates.y + 10; // 10px padding
-    }
-
-    popup.setOffset([offsetX, offsetY]);
-}
 
 
 
