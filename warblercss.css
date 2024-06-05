@@ -736,10 +736,10 @@ https://dwellsy.com/rentmaps */
     color: #ffffff;
 }
 
-#offon a.offon-active:hover {
-    background-color: #3074a4;
+/*offon a.offon-active:hover {
+    //background-color: #3074a4;
     color: #ffffff;
-}
+}*/
     #mapboxheading {
 	margin-bottom: 0px;
     }
