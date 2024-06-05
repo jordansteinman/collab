@@ -153,10 +153,6 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                         'id': rank.id,
                         'type': 'fill',
                         'source': rank.id,
-			'layout': {
-			       'text-allow-overlap': false,
-				"text-size": 12
-			},
                         'paint': {
                             'fill-color': rank.color,
                             'fill-opacity': 0.7,
@@ -166,8 +162,14 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                     firstSymbolId
                 );
 
-                map.on('click', rank.id, (e) => {
-                    new mapboxgl.Popup({ className: "popups" })
+		map.on('click', rank.id, (e) => {
+                    // Close the currently open popup
+                    if (currentPopup) {
+                        currentPopup.remove();
+                    }
+
+                 // Create a new popup
+                    currentPopup = new mapboxgl.Popup({ className: "popups" })
                         .setLngLat(e.lngLat)
                         .setHTML('<h5>Rank ' + rank.id.replace('rank', '') + '</h5>')
                         .addTo(map);
