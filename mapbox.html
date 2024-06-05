@@ -153,6 +153,10 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                         'id': rank.id,
                         'type': 'fill',
                         'source': rank.id,
+			'layout': {
+			       'text-allow-overlap': false,
+				"text-size": 12
+			},
                         'paint': {
                             'fill-color': rank.color,
                             'fill-opacity': 0.7,
