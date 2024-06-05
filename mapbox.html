@@ -165,7 +165,7 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
                map.on('click', rank.id, (e) => {
                     new mapboxgl.Popup({ className: "popups" })
                         .setLngLat(e.lngLat)
-                        .setHTML('<p>Rank ' + rank.id.replace('rank', '') + '</p>')
+                        .setHTML('<h5>Rank ' + rank.id.replace('rank', '') + '</h5>')
                         .addTo(map);
 
         });
@@ -239,7 +239,7 @@ map.on('styledata', () => {
      map.on('click', 'Where to Work Optimization', (e) => {
                     new mapboxgl.Popup({ className: "popups" })
                         .setLngLat(e.lngLat)
-                       .setHTML('<p>Where to Work Optimal Habitat</p>')
+                       .setHTML('<h5>Where to Work Optimal Habitat</h5>')
 		        .addTo(map);
 		
                 });
