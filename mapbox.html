@@ -170,78 +170,7 @@ map.addControl(new mapboxgl.ScaleControl(), 'top-left');
         });
  });
 		    
-// Waterbodies.geojson, layer from OHN 100K Waterbodies
-//map.off('style.load');
-map.on('styledata', () => {
-       const layers = map.getStyle().layers;
-        let firstSymbolId;
-      for (const layer of layers) {
-            if (layer.type === 'symbol') {
-                firstSymbolId = layer.id;
-                break;
-            }
-        }
-        map.addSource('Waterbodies', {
-            type: 'geojson',
-            data: 'data/Waterbodies.geojson'
-        });
-        map.addLayer(
-            {
-		'id': 'Waterbodies',
-		'type': 'fill',
-		'source': 'Waterbodies',
-		'layout': {}, 
-		'paint': {
-			'fill-color': '#87CEEB',
-		}
-			
-		
-            },
-            firstSymbolId
-        );
-});
 
-// Where to work 
-map.off('style.load');
-map.on('styledata', () => {
-       const layers = map.getStyle().layers;
-        let firstSymbolId;
-      for (const layer of layers) {
-            if (layer.type === 'symbol') {
-                firstSymbolId = layer.id;
-                break;
-            }
-        }
-        map.addSource('Where to Work Optimization', {
-            type: 'geojson',
-            data: 'data/Where to Work Optimization.geojson'
-        });
-        map.addLayer(
-            {
-		'id': 'Where to Work Optimization',
-		'type': 'fill',
-		'source': 'Where to Work Optimization',
-		'layout': {
-			'visibility': 'none' 
-		}, 
-		'paint': {
-			'fill-color': '#7704CF'
-		}
-		        
-		
-            },
-            firstSymbolId
-        );
-
-     map.on('click', rank.id, (e) => {
-                    new mapboxgl.Popup({ className: "popups" })
-                        .setLngLat(e.lngLat)
-                       .setHTML('<p>Where to Work Optimized Habitat</p>')
-		        .addTo(map);
-		
-                });
-            });
-       
 
 
 
