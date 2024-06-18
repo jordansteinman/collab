@@ -766,6 +766,7 @@ https://dwellsy.com/rentmaps */
     margin-left: auto;
     margin-right: auto;
     display: grid;
+    margin-bottom: 15px;
 }
 .layerdesc {
     font-size: 16px;
