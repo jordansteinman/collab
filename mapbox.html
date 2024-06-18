@@ -103,8 +103,8 @@
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
 map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
 // add expand button: https://docs.mapbox.com/mapbox-gl-js/example/fullscreen/
-map.addControl(new mapboxgl.FullscreenControl(),'top-left');
-
+//map.addControl(new mapboxgl.FullscreenControl(),'top-left');
+map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
 
 
      //Add source and layer whenever base style is loaded
