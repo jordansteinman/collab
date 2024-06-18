@@ -101,9 +101,9 @@
     }
     map.addControl(new LegendControl(), 'bottom-right');
 // Adding scale bar: https://docs.mapbox.com/mapbox-gl-js/example/navigation-scale/
-map.addControl(new mapboxgl.ScaleControl(), 'top-left');
+map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
 // add expand button: https://docs.mapbox.com/mapbox-gl-js/example/fullscreen/
-map.addControl(new mapboxgl.FullscreenControl());
+map.addControl(new mapboxgl.FullscreenControl(),'top-left');
 
 
 
@@ -318,9 +318,9 @@ map.on('idle', () => {
 </script>
 
 	
-<div>
+<!--<div>
 <button onclick="topFunction()" id="topbutton" class="hide" title="Top">Top</button>
-</div>
+</div>-->
 
 
 <footer class="w3-center w3-padding-16 bottom" id="footer">
