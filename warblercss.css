@@ -614,7 +614,7 @@ https://dwellsy.com/rentmaps */
 .leg8 { background-color: #8B08CC; }
 .leg9 { background-color: #7704CF; }*/
 
-.leg1 { background-color: #FFD700; }
+/*.leg1 { background-color: #FFD700; }
 .leg2 { background-color: #FFC200; }
 .leg3 { background-color: #FFA500; }
 .leg4 { background-color: #FF7F50; }
@@ -622,7 +622,17 @@ https://dwellsy.com/rentmaps */
 .leg6 { background-color: #CC4779; }
 .leg7 { background-color: #AA2396; }
 .leg8 { background-color: #970EB2; }
-.leg9 { background-color: #7704CF; }
+.leg9 { background-color: #7704CF; }*/
+
+.leg1 { background-color: #FFD700; }
+.leg2 { background-color: #FFC200; }
+.leg3 { background-color: #FFA500; }
+.leg4 { background-color: #FF7F50; }
+.leg5 { background-color: #E66C5D; }
+.leg6 { background-color: #CC6699; }
+.leg7 { background-color: #B255A7; }
+.leg8 { background-color: #9944B5; }
+.leg9 { background-color: #772FB3; }
 #legendtitle {
     font-size: 15px;
     margin: 0 0 3px 0
