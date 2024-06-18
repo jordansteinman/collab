@@ -112,9 +112,7 @@ const mapContainer = document.getElementById('map-container');
 
 // Add the FullscreenControl to the map
 map.addControl(new mapboxgl.FullscreenControl({
-    container: mapContainer,
-    position: 'top-left'
-}));
+    container: mapContainer}), 'top-left');
 
 
      //Add source and layer whenever base style is loaded
