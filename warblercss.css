@@ -762,6 +762,7 @@ https://dwellsy.com/rentmaps */
 
 .methodphoto {
     max-width: 100%;
+    border: 1px solid #555;
 }
 .layerdesc {
     font-size: 16px;
