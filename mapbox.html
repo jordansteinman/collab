@@ -3,6 +3,7 @@
 <head>
   <title>JLR Solutions</title>
   <link rel="stylesheet" href="warblercss.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--Style sheet for social media icons from:https://www.w3schools.com/howto/howto_css_social_media_buttons.asp-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
@@ -40,6 +41,7 @@
 <div id='map'></div>
 <nav id='offon'></nav>
 </div>
+<button id="map_toggler">Expand Map</button>
 <!--<div id="menu">
 <div><p id='menutitle'>Basemap Options</h1></div>
 <div class="options">
@@ -306,6 +308,16 @@ map.on('idle', () => {
 	map.setLayoutProperty(id, 'visibility', 'none');
         }
     });
+
+$(document).ready(function() {
+  $("#map_toggler").click(function() {
+    $("#map").toggleClass("fullscreen");
+
+    // Optional: Change button text based on fullscreen state
+    var buttonText = $("#map").hasClass("fullscreen") ? "Exit Fullscreen" : "Expand Map";
+    $("#map_toggler").text(buttonText);
+  });
+});
 
 </script>
 
