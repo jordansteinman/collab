@@ -104,7 +104,7 @@
 map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
 // add expand button: https://docs.mapbox.com/mapbox-gl-js/example/fullscreen/
 //map.addControl(new mapboxgl.FullscreenControl(),'top-left');
-map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
+map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map-container')}));
 
 
      //Add source and layer whenever base style is loaded
