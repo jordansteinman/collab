@@ -743,6 +743,8 @@ https://dwellsy.com/rentmaps */
 }
 #mapboxheading {
     margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 #about {
     padding-top: 0px;
