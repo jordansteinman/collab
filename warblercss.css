@@ -741,9 +741,13 @@ https://dwellsy.com/rentmaps */
     background-color: #9370DB;
     color: #ffffff;
 }
-    #mapboxheading {
-	margin-bottom: 0px;
-    }
-    #about {
+#mapboxheading {
+    margin-bottom: 0px;
+}
+#about {
     padding-top: 0px;
-    }
+}
+
+.methodphoto {
+    max-width: 100%;
+}
