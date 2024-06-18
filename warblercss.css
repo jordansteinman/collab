@@ -581,6 +581,7 @@ https://dwellsy.com/rentmaps */
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	z-index: 1000;
 	max-width: 300px;
 	margin-right: 10px;
 	margin-bottom: 15px;
