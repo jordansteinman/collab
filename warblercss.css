@@ -770,6 +770,8 @@ https://dwellsy.com/rentmaps */
 }
 .layerdesc {
     font-size: 16px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 li {
     margin-left: 40px;
