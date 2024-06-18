@@ -105,13 +105,15 @@
 map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
 // add expand button: https://docs.mapbox.com/mapbox-gl-js/example/fullscreen/
 //map.addControl(new mapboxgl.FullscreenControl(),'top-left');
+//https://docs.mapbox.com/mapbox-gl-js/api/markers/
 //map.addControl(new mapboxgl.FullscreenControl({container: mapContainer('map-container')}));
 // Get the map container element
 const mapContainer = document.getElementById('map-container');
 
 // Add the FullscreenControl to the map
 map.addControl(new mapboxgl.FullscreenControl({
-    container: mapContainer  // Set the container to the map's container element
+    container: mapContainer,
+    position: 'top-left'
 }));
 
 
