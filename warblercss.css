@@ -763,10 +763,14 @@ https://dwellsy.com/rentmaps */
 .methodphoto {
     max-width: 100%;
     border: 1px solid #555;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
 }
 .layerdesc {
     font-size: 16px;
 }
 li {
     margin-left: 40px;
+    font-size: 16px;
 }
