@@ -155,7 +155,21 @@ importance, spatial coverage, and data confidence </p>
 	
 <button class="ExpandingButton">Habitat Suitability Methods Comparison</button>
 <div class="Article">
-  <p>In-progress.</p>
+ <p class="layerdesc">A key aspect of this project involved comparing and exploring different types of habitat suitability models. We examined two main approaches: ArcGIS Pro's Weighted Overlay 
+and the Where to Work application, both of which reclassify criteria. ArcGIS Pro assigns weights to criteria based on their relative importance, often using tools like AHP (Analytic Hierarchy Process) to 
+generate unbiased weights. In contrast, the Where to Work application employs optimization or a Boolean approach, focusing solely on suitable habitat criteria to produce results. This application prioritizes 
+certain criteria over others based on thematic importance and assigned weights.</p>
+<p class="layerdesc">The main difference between these approaches is that ArcGIS Pro's Weighted Overlay ranks all criteria, both good and bad, using a scale from 1 to 9, with 9 being the most suitable and 1 the least suitable 
+habitat. In contrast, the Where to Work application displays only the suitable habitat. Although both methods use weights, they apply them differently. ArcGIS Pro's overlay method identifies areas meeting 
+multiple criteria based on their weighted importance, with the weights adding up to 100%. The Where to Work application uses themes and weights, constraining its output based on the thematic goal percentage and the weight factors.
+Below is the ouputs of both the Where to Work Optimization Application (top image) and the weighted overlay created in ArcGIS Pro (bottom image).</p>
+
+<img src="photos/compare.png" alt="Suitability Analyses Comparison" class ="responsiveImages, center, methodphoto">
+
+<p class="layerdesc">When both outputs were produced, it was observed that the Where to Work output closely resembled the ArcGIS Pro overlay rankings of 5-9, representing moderate to highly suitable habitat. Thus, both approaches successfully identified 
+areas that are suitable or can be suitable habitats for the Kirtland’s Warbler. However, if the ranking value of 5 is excluded and only 6-9 are displayed, the similarities in the northwestern section of the study area disappear. 
+This indicates that the Where to Work application included moderately suitable habitats, not just highly suitable areas, likely due to the high goal percentages assigned to themes (soils). Assigning high goal percentages to themes results in broader criteria coverage across 
+the study area. Therefore, even if an area has good soil but does not meet all other criteria, it would still be displayed as suitable.</p>
 </div>
 
 </div> 
