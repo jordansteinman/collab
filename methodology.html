@@ -50,12 +50,12 @@
 	<img src="photos/PA.PNG" alt="Protected Areas data layer" class ="responsiveImages, center, methodphoto">
 	<hr>
 	<h3>Tree Species Distribution</h3>
-	<p class=layerdesc"> The tree species distribution data in Ontario began as a vector feature layer categorizing species prominence 
+	<p class="layerdesc"> The tree species distribution data in Ontario began as a vector feature layer categorizing species prominence 
 		on a scale from 0 to 5, with 0 indicating no presence and 5 indicating dominance. This 'class' field was transformed into a 'rank' 
 		field specifically for Red Pine, Jack Pine, and Oak species, and individual vector layers were created for each species. 
 		These layers were then rasterized at 30-meter and 10-hectare resolutions. To calculate tree suitability, the maximum value of Jack Pine or Red Pine 
 		was determined using the Cell Statistics tool. This value was then multiplied by the presence of Oaks using the Raster Calculator tool. The suitability formula used was:</p>
-                     <p class =math"> Tree Suitability=max(Jack Pine, Red Pine)×All Oaks</p>
+                     <p class="math"> Tree Suitability=max(Jack Pine, Red Pine)×All Oaks</p>
         <p class=layerdesc">This formula enhances suitability if Oaks are present. The resulting layer was reclassified into a 1-9 suitability range for the final weighted overlay. </p>
 	<img src="photos/Trees.PNG" alt="Protected Areas data layer" class ="responsiveImages, center, methodphoto">
 	<hr>
